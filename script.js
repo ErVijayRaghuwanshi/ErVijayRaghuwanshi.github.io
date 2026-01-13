@@ -1,364 +1,28 @@
+/**
+ * Portfolio Main Script
+ * Updated for: ErVijayRaghuwanshi.github.io
+ */
 
-
-// Initialize AOS (Animate On Scroll)
+// 1. Initialize AOS (Animate On Scroll)
 AOS.init({
     duration: 600,
     offset: 100,
     once: true
 });
 
-// Initialize Particles.js
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#2563eb'
-        },
-        shape: {
-            type: 'circle'
-        },
-        opacity: {
-            value: 0.5,
-            random: false
-        },
-        size: {
-            value: 3,
-            random: true
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#2563eb',
-            opacity: 0.2,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: {
-            onhover: {
-                enable: true,
-                mode: 'grab'
-            },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
-            resize: true
-        },
-        modes: {
-            grab: {
-                distance: 140,
-                line_linked: {
-                    opacity: 0.5
-                }
-            },
-            push: {
-                particles_nb: 4
-            }
-        }
-    },
-    retina_detect: true
-});
-
-// Dark Mode Toggle
-// const darkModeToggle = document.getElementById('darkModeToggle');
-// const html = document.documentElement;
-
-// Check for saved dark mode preference
-// const darkMode = localStorage.getItem('darkMode') === 'true';
-// if (darkMode) {
-//     html.classList.add('dark');
-// }
-
-// darkModeToggle.addEventListener('click', () => {
-//     html.classList.toggle('dark');
-//     localStorage.setItem('darkMode', html.classList.contains('dark'));
-// });
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Add fade-in animation to sections when they come into view
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
-
-// Add active state to navigation links based on scroll position
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('text-blue-600', 'dark:text-blue-400',);
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('text-blue-600', 'dark:text-blue-400');
-        }
-    });
-});
-
-// Fetch last updated date from GitHub API
-function timeAgo(date) {
-    const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-
-    if (seconds < 60) return `${seconds} seconds ago`;
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours} hour${hours > 1 ? "s" : ""} ago`;
-    const days = Math.floor(hours / 24);
-    if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
-    const weeks = Math.floor(days / 7);
-    if (weeks < 4) return `${weeks} week${weeks > 1 ? "s" : ""} ago`;
-    const months = Math.floor(days / 30);
-    if (months < 12) return `${months} month${months > 1 ? "s" : ""} ago`;
-    const years = Math.floor(days / 365);
-    return `${years} year${years > 1 ? "s" : ""} ago`;
-}
-
-// Fetch last updated date from GitHub API
-// async function getLastUpdated() {
-//     const lastUpdatedElement = document.getElementById("last-updated");
-//     const commitMessageElement = document.getElementById("commit-message");
-//     lastUpdatedElement.textContent = "Fetching last updated time...";
-
-//     try {
-//         const response = await fetch(
-//             "https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi/commits?per_page=1"
-//         );
-//         const data = await response.json();
-//         const date = new Date(data[0].commit.committer.date);
-//         const commit_message = data[0].commit.message;
-
-//         lastUpdatedElement.textContent =
-//             "Last updated: " + timeAgo(date);
-//         commitMessageElement.textContent = `${commit_message}`;
-//     } catch (error) {
-//         lastUpdatedElement.textContent = "Failed to fetch last updated time.";
-//         console.error("Error fetching last updated:", error);
-//     }
-// }
-
-
-// Loading Animation
-// window.addEventListener("load", () => {
-//     getLastUpdated();
-//     const loader = document.querySelector(".loading");
-//     if (loader) {
-//         // Add delay before starting fade-out
-//         setTimeout(() => {
-//             loader.style.opacity = "0";
-//             setTimeout(() => {
-//                 loader.style.display = "none";
-//             }, 300); // fade-out duration
-//         }, 900); // ⬅️ extra delay (in ms)
-//     }
-// });
-
-
-async function getLastUpdated() {
-    const lastUpdatedElement = document.getElementById("last-updated");
-    const commitMessageElement = document.getElementById("commit-message");
-    lastUpdatedElement.textContent = "Fetching last updated time...";
-
-    try {
-        const response = await fetch(
-            "https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi/commits?per_page=1"
-        );
-        const data = await response.json();
-        const date = new Date(data[0].commit.committer.date);
-        const commit_message = data[0].commit.message;
-
-        lastUpdatedElement.textContent = "Last updated: " + timeAgo(date);
-        commitMessageElement.textContent = commit_message;
-
-        // ✅ Hide loader only after update
-        hideLoader();
-    } catch (error) {
-        lastUpdatedElement.textContent = "Failed to fetch last updated time.";
-        console.error("Error fetching last updated:", error);
-
-        // Still hide loader after error
-        hideLoader();
-    }
-}
-
-function hideLoader() {
-    const loader = document.querySelector(".loading");
-    if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = "0";
-            setTimeout(() => {
-                loader.style.display = "none";
-            }, 300);
-        }, 300);
-    }
-}
-
-window.addEventListener("load", () => {
-    getLastUpdated(); // loader hides only when fetch completes
-});
-
-
-
-// Parallax Effect for Hero Section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero-section');
-    if (hero) {
-        const scrolled = window.pageYOffset;
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Typing Animation for Hero Text
-const heroText = document.querySelector('.hero-text');
-if (heroText) {
-    const text = heroText.textContent;
-    heroText.textContent = '';
-    let i = 0;
-
-    function typeWriter() {
-        if (i < text.length) {
-            heroText.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-
-    typeWriter();
-}
-
-// Add hover effect to skill badges
-// document.querySelectorAll('.skill-badge').forEach(badge => {
-//     badge.addEventListener('mouseenter', () => {
-//         badge.style.transform = 'translateY(-2px)';
-//     });
-//     badge.addEventListener('mouseleave', () => {
-//         badge.style.transform = 'translateY(0)';
-//     });
-// });
-
-// Add hover effect to project cards
-// document.querySelectorAll('.project-card').forEach(card => {
-//     card.addEventListener('mouseenter', () => {
-//         card.style.transform = 'translateY(-5px)';
-//     });
-//     card.addEventListener('mouseleave', () => {
-//         card.style.transform = 'translateY(0)';
-//     });
-// });
-
-// Add hover effect to contact links
-// document.querySelectorAll('.contact-link').forEach(link => {
-//     link.addEventListener('mouseenter', () => {
-//         link.style.transform = 'translateY(-3px)';
-//     });
-//     link.addEventListener('mouseleave', () => {
-//         link.style.transform = 'translateY(0)';
-//     });
-// });
-
-// Theme Management
-const themes = ['theme-purple', 'theme-green', 'theme-red', 'theme-orange'];
-let currentThemeIndex = 0;
-
-// Function to set theme
-function setTheme(themeName) {
-    // Remove all theme classes
-    themes.forEach(theme => document.body.classList.remove(theme));
-    // Add the new theme class
-    document.body.classList.add(themeName);
-    // Update particles color
-    updateParticlesColor();
-    // Save theme preference
-    localStorage.setItem('theme', themeName);
-}
-
-// Function to update particles color based on current theme
-function updateParticlesColor() {
-    const computedStyle = getComputedStyle(document.body);
-    const primaryColor = computedStyle.getPropertyValue('--theme-primary').trim();
-
+// 2. Initialize Particles.js
+function initParticles(color = '#2563eb') {
     particlesJS('particles-js', {
         particles: {
-            number: {
-                value: 80,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: primaryColor
-            },
-            shape: {
-                type: 'circle'
-            },
-            opacity: {
-                value: 0.5,
-                random: false
-            },
-            size: {
-                value: 3,
-                random: true
-            },
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: color },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
             line_linked: {
                 enable: true,
                 distance: 150,
-                color: primaryColor,
+                color: color,
                 opacity: 0.2,
                 width: 1
             },
@@ -375,162 +39,183 @@ function updateParticlesColor() {
         interactivity: {
             detect_on: 'canvas',
             events: {
-                onhover: {
-                    enable: true,
-                    mode: 'grab'
-                },
-                onclick: {
-                    enable: true,
-                    mode: 'push'
-                },
+                onhover: { enable: true, mode: 'grab' },
+                onclick: { enable: true, mode: 'push' },
                 resize: true
             },
             modes: {
-                grab: {
-                    distance: 140,
-                    line_linked: {
-                        opacity: 0.5
-                    }
-                },
-                push: {
-                    particles_nb: 4
-                }
+                grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                push: { particles_nb: 4 }
             }
         },
         retina_detect: true
     });
 }
 
-// // Theme toggle event listener
-// document.getElementById('themeToggle').addEventListener('click', () => {
-//     currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-//     setTheme(themes[currentThemeIndex]);
-// });
+// Initial call
+initParticles();
 
-// Load saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme && themes.includes(savedTheme)) {
-    currentThemeIndex = themes.indexOf(savedTheme);
-    setTheme(savedTheme);
+// 3. Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// 4. Section Fade-in Observer
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+// 5. Navigation Active State
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY; // Modern standard
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollPos >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('text-blue-600', 'dark:text-blue-400');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('text-blue-600', 'dark:text-blue-400');
+        }
+    });
+});
+
+// 6. GitHub API Integration (Updated Repo Path)
+function timeAgo(date) {
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+    if (seconds < 60) return `${seconds}s ago`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    return `${days} day${days > 1 ? "s" : ""} ago`;
 }
 
+async function getLastUpdated() {
+    const lastUpdatedElement = document.getElementById("last-updated");
+    const commitMessageElement = document.getElementById("commit-message");
+    if(!lastUpdatedElement) return;
 
-// // Mobile menu toggle
-// const menuToggle = document.getElementById("menuToggle");
-// const mobileMenu = document.getElementById("mobileMenu");
+    try {
+        // UPDATED: Points to the new .github.io repo
+        const response = await fetch(
+            "https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi.github.io/commits?per_page=1"
+        );
+        const data = await response.json();
+        const date = new Date(data[0].commit.committer.date);
+        const message = data[0].commit.message;
 
-// menuToggle.addEventListener("click", () => {
-//   mobileMenu.classList.toggle("hidden");
+        lastUpdatedElement.textContent = "Last updated: " + timeAgo(date);
+        if(commitMessageElement) commitMessageElement.textContent = message;
 
-//   // Switch hamburger <-> close icon
-//   const icon = menuToggle.querySelector("i");
-//   icon.classList.toggle("fa-bars");
-//   icon.classList.toggle("fa-times");
-// });
+        hideLoader();
+    } catch (error) {
+        if(lastUpdatedElement) lastUpdatedElement.textContent = "Offline or API limit reached";
+        hideLoader();
+    }
+}
 
+function hideLoader() {
+    const loader = document.querySelector(".loading");
+    if (loader) {
+        loader.style.opacity = "0";
+        setTimeout(() => { loader.style.display = "none"; }, 300);
+    }
+}
 
+// 7. Theme Management
+const themes = ['theme-purple', 'theme-green', 'theme-red', 'theme-orange'];
+let currentThemeIndex = 0;
+
+function setTheme(themeName) {
+    themes.forEach(t => document.body.classList.remove(t));
+    document.body.classList.add(themeName);
+    
+    // Dynamically update particles without full re-init if possible
+    const primaryColor = getComputedStyle(document.body).getPropertyValue('--theme-primary').trim();
+    initParticles(primaryColor); 
+    
+    localStorage.setItem('theme', themeName);
+}
+
+// 8. Mobile Menu Logic
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
-const mobileLinks = mobileMenu.querySelectorAll("a");
+const mobileLinks = mobileMenu?.querySelectorAll("a");
 
 function toggleMenu() {
     if (mobileMenu.classList.contains("max-h-0")) {
-        // Open menu
-        mobileMenu.classList.remove("max-h-0");
-        mobileMenu.classList.add("max-h-96"); // adjust depending on menu height
+        mobileMenu.classList.replace("max-h-0", "max-h-96");
     } else {
-        // Close menu
-        mobileMenu.classList.add("max-h-0");
-        mobileMenu.classList.remove("max-h-96");
+        mobileMenu.classList.replace("max-h-96", "max-h-0");
     }
-
-    // Toggle icon (hamburger <-> X)
     const icon = menuToggle.querySelector("i");
     icon.classList.toggle("fa-bars");
     icon.classList.toggle("fa-times");
 }
 
-menuToggle.addEventListener("click", toggleMenu);
+if(menuToggle) menuToggle.addEventListener("click", toggleMenu);
+mobileLinks?.forEach(link => link.addEventListener("click", toggleMenu));
 
-// Close menu when a link is clicked
-mobileLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        if (!mobileMenu.classList.contains("max-h-0")) {
-            toggleMenu();
-        }
-    });
-});
-
-
-
-
-
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").then(reg => {
-        // Listen for updates
-        reg.addEventListener("updatefound", () => {
-            const newWorker = reg.installing;
-            newWorker.addEventListener("statechange", () => {
-                if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-                    // New version available
-                    showUpdateToast(newWorker);
-                }
-            });
-        });
-    });
-}
-
-
-
-
-// leetcode stats update
+// 9. LeetCode Stats
 async function loadLeetCodeStats() {
+    const totalEl = document.getElementById("totalSolved");
+    if(!totalEl) return;
     try {
         const res = await fetch("https://leetcode-stats-api.herokuapp.com/ervijayraghuwanshi");
         const data = await res.json();
-
-        // Update stats dynamically
-        document.getElementById("totalSolved").textContent = `${data.totalSolved} / ${data.totalQuestions}`;
+        totalEl.textContent = `${data.totalSolved} / ${data.totalQuestions}`;
         document.getElementById("easySolved").textContent = data.easySolved;
         document.getElementById("mediumSolved").textContent = data.mediumSolved;
         document.getElementById("hardSolved").textContent = data.hardSolved;
-
-    } catch (error) {
-        console.error("Error fetching LeetCode stats:", error);
-    }
+    } catch (e) { console.error("LeetCode fetch failed"); }
 }
 
-loadLeetCodeStats();
-
-// JavaScript for keyboard shortcuts
-
-document.addEventListener("keydown", (e) => {
-    // Ignore typing in input fields
-    if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
-
-    const key = e.key.toUpperCase();
-    const link = document.querySelector(`.nav-link[data-key="${key}"]`);
-    if (link) {
-        link.click(); // simulate click
-        e.preventDefault(); // prevent default behavior
-    }
-});
-
-
-let altPressed = false;
+// 10. Service Worker & Keyboard Shortcuts
+if ("serviceWorker" in navigator) {
+    // Changed to absolute path for the root domain
+    navigator.serviceWorker.register("/sw.js");
+}
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === "Alt") {
-        altPressed = true;
-        document.body.classList.add("show-keytips");
-    }
+    if (e.key === "Alt") document.body.classList.add("show-keytips");
 });
-
 document.addEventListener('keyup', (e) => {
-    if (e.key === "Alt") {
-        altPressed = false;
-        document.body.classList.remove("show-keytips");
-    }
+    if (e.key === "Alt") document.body.classList.remove("show-keytips");
 });
 
-
+// Initial Load
+window.addEventListener("load", () => {
+    getLastUpdated();
+    loadLeetCodeStats();
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) setTheme(savedTheme);
+});
