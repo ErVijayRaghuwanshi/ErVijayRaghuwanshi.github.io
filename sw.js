@@ -1,22 +1,22 @@
-const CACHE_NAME = "simple-pwa-cache-v2"; // bump version on updates
+const CACHE_NAME = "portfolio-cache-v3"; // Bumped version
 const urlsToCache = [
-  "/ErVijayRaghuwanshi/",
-  "/ErVijayRaghuwanshi/index.html", 
-  "/ErVijayRaghuwanshi/manifest.json", 
-  "/ErVijayRaghuwanshi/sw.js",
-  "/ErVijayRaghuwanshi/script.js", 
-  "/ErVijayRaghuwanshi/style.css",
-  "/ErVijayRaghuwanshi/assets/profile.jpeg",
-  "/ErVijayRaghuwanshi/assets/Vijay_Raghuwanshi_Resume.pdf",
-  "/ErVijayRaghuwanshi/assets/screenshots/desktop.png",
-  "/ErVijayRaghuwanshi/assets/icon-32x32.png", 
-  "/ErVijayRaghuwanshi/assets/icon-48x48.png",
-  "/ErVijayRaghuwanshi/assets/icon-72x72.png",
-  "/ErVijayRaghuwanshi/assets/icon-96x96.png", 
-  "/ErVijayRaghuwanshi/assets/icon-144x144.png",
-  "/ErVijayRaghuwanshi/assets/icon-152x152.png",
-  "/ErVijayRaghuwanshi/assets/icon-128x128.png",
-  "/ErVijayRaghuwanshi/assets/icon-192x192.png",
+  "/",
+  "/index.html", 
+  "/manifest.json", 
+  "/sw.js",
+  "/script.js", 
+  "/style.css",
+  "/assets/profile.jpeg",
+  "/assets/Vijay_Raghuwanshi_Resume.pdf",
+  "/assets/screenshots/desktop.png",
+  "/assets/icon-32x32.png", 
+  "/assets/icon-48x48.png",
+  "/assets/icon-72x72.png",
+  "/assets/icon-96x96.png", 
+  "/assets/icon-144x144.png",
+  "/assets/icon-152x152.png",
+  "/assets/icon-128x128.png",
+  "/assets/icon-192x192.png",
 ];
 
 // Install → cache assets
@@ -54,16 +54,16 @@ self.addEventListener("activate", event => {
 });
 
 // Fetch → network-first for HTML, cache-first for others
+// Update the fetch listener fallback path as well
 self.addEventListener("fetch", event => {
   if (event.request.mode === "navigate") {
-    // Always try network first for HTML
     event.respondWith(
-      fetch(event.request).catch(() => caches.match("/ErVijayRaghuwanshi/index.html"))
+      fetch(event.request).catch(() => caches.match("/index.html")) // Removed prefix here
     );
   } else {
-    // Cache-first for static files
     event.respondWith(
       caches.match(event.request).then(res => res || fetch(event.request))
     );
   }
 });
+
