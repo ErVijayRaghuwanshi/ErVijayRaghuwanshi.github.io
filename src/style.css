@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Ensure the background of the body is set via Tailwind to allow transition */
+  @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
+  /* Make sure body is not hidden by the fixed particle container */
+  position: relative;
+  z-index: 1; /* Give body content a z-index above the particles (z-0) */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1f2937; 
+}
+::-webkit-scrollbar-thumb {
+    background: #3b82f6; 
+    border-radius: 4px;
+}
+
+/* Animations */
+@keyframes scale-in {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.animate-scale-in {
+    animation: scale-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* --- KEY BINDING STYLES --- */
+
+/* Keytip element styles (hidden by default) */
+.key-tip {
+  /* Positioning relative to the link/button */
+  @apply hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none;
+}
+
+/* Style and visibility when the 'show-keytips' class is added to the body (by Alt keydown) */
+body.show-keytips .key-tip {
+  @apply block bg-blue-600 text-white font-bold text-sm px-2 py-1 rounded-md shadow-lg transform scale-100 transition-transform duration-150 ease-out border-2 border-white dark:border-gray-900;
+  /* Add a subtle pulse for attention */
+  animation: keytip-pulse 1s infinite;
+}
+
+@keyframes keytip-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 5px rgba(59, 130, 246, 0);
+    }
+}
+
+/* IMPORTANT: The parent of the link must be relative for the key-tip to position correctly */
+.nav-link-wrapper {
+  @apply relative;
+}
+
+/* --- PARTICLES.JS CANVAS STYLES --- */
+/* Ensure the canvas covers the full viewport and has a low z-index */
+#particles-js canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* Optional: Ensure the canvas has a transparent background so the body's background color shows through */
+    background-color: transparent; 
+}
+
+/* You might need to make sure your main section components (HeroSection, AboutSection, etc.) 
+   have a solid background (e.g., bg-white or dark:bg-gray-800) so the text is legible over the particles. 
+   The provided components already do this.
+*/
