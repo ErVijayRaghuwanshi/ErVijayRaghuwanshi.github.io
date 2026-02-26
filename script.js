@@ -187,15 +187,44 @@ mobileLinks?.forEach(link => link.addEventListener("click", toggleMenu));
 // 9. LeetCode Stats
 async function loadLeetCodeStats() {
     const totalEl = document.getElementById("totalSolved");
-    if(!totalEl) return;
+    if (!totalEl) return;
+
+    // fallback values (edit if you want)
+    const fallback = {
+        totalSolved: 390,
+        totalQuestions: 3851,
+        easySolved: 188,
+        mediumSolved: 178,
+        hardSolved: 24
+    };
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1000); // 5s timeout
+
     try {
-        const res = await fetch("https://leetcode-stats-api.herokuapp.com/ervijayraghuwanshi");
+        const res = await fetch(
+            "https://leetcode-stats-api.herokuapp.com/ervijayraghuwanshi",
+            { signal: controller.signal }
+        );
+
+        clearTimeout(timeout);
+
+        if (!res.ok) throw new Error("API error");
+
         const data = await res.json();
+
+        updateStats(data);
+    } catch (e) {
+        console.warn("LeetCode fetch failed → using fallback");
+        updateStats(fallback);
+    }
+
+    function updateStats(data) {
         totalEl.textContent = `${data.totalSolved} / ${data.totalQuestions}`;
         document.getElementById("easySolved").textContent = data.easySolved;
         document.getElementById("mediumSolved").textContent = data.mediumSolved;
         document.getElementById("hardSolved").textContent = data.hardSolved;
-    } catch (e) { console.error("LeetCode fetch failed"); }
+    }
 }
 
 // 10. Service Worker & Keyboard Shortcuts
