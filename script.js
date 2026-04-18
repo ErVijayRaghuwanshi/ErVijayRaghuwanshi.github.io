@@ -191,11 +191,11 @@ async function loadLeetCodeStats() {
 
     // fallback values (edit if you want)
     const fallback = {
-        totalSolved: 390,
+        totalSolved: 398,
         totalQuestions: 3851,
-        easySolved: 188,
-        mediumSolved: 178,
-        hardSolved: 24
+        easySolved: 192,
+        mediumSolved: 181,
+        hardSolved: 25
     };
 
     const controller = new AbortController();
@@ -219,12 +219,36 @@ async function loadLeetCodeStats() {
         updateStats(fallback);
     }
 
-    function updateStats(data) {
-        totalEl.textContent = `${data.totalSolved} / ${data.totalQuestions}`;
-        document.getElementById("easySolved").textContent = data.easySolved;
-        document.getElementById("mediumSolved").textContent = data.mediumSolved;
-        document.getElementById("hardSolved").textContent = data.hardSolved;
+    function animateCount(el, endValue, duration = 800) {
+    const startValue = parseInt(el.textContent) || 0;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const value = Math.floor(startValue + (endValue - startValue) * progress);
+        el.textContent = value;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
     }
+
+    requestAnimationFrame(update);
+}
+
+    function updateStats(data = {}) {
+    const totalEl = document.getElementById("totalSolved");
+    const easyEl = document.getElementById("easySolved");
+    const mediumEl = document.getElementById("mediumSolved");
+    const hardEl = document.getElementById("hardSolved");
+
+    if (totalEl)
+        totalEl.textContent = `${data.totalSolved ?? 0} / ${data.totalQuestions ?? 0}`;
+
+    if (easyEl) animateCount(easyEl, data.easySolved ?? 0);
+    if (mediumEl) animateCount(mediumEl, data.mediumSolved ?? 0);
+    if (hardEl) animateCount(hardEl, data.hardSolved ?? 0);
+}
 }
 
 // 10. Service Worker & Keyboard Shortcuts
