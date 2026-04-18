@@ -251,6 +251,29 @@ async function loadLeetCodeStats() {
 }
 }
 
+function observeLeetCodeStatsInView() {
+    const leetCodeSection = document.getElementById("leetcode");
+    if (!leetCodeSection) return;
+
+    if (!("IntersectionObserver" in window)) {
+        loadLeetCodeStats();
+        return;
+    }
+
+    let hasLoaded = false;
+    const leetCodeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasLoaded) {
+                hasLoaded = true;
+                loadLeetCodeStats();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    leetCodeObserver.observe(leetCodeSection);
+}
+
 // 10. Service Worker & Keyboard Shortcuts
 if ("serviceWorker" in navigator) {
     // Changed to absolute path for the root domain
@@ -267,7 +290,7 @@ document.addEventListener('keyup', (e) => {
 // Initial Load
 window.addEventListener("load", () => {
     getLastUpdated();
-    loadLeetCodeStats();
+    observeLeetCodeStatsInView();
     
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) setTheme(savedTheme);
