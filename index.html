@@ -439,108 +439,164 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 relative">
-    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-    <div class="container mx-auto px-4 relative">
-      <div class="flex items-center justify-center mb-12">
-        <i class="fas fa-project-diagram text-4xl text-blue-500 mr-4"></i>
-        <h2 class="text-4xl font-bold" data-aos="fade-up">Featured Projects</h2>
+<!-- Projects Section -->
+<section id="projects" class="py-20 relative">
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  <div class="container mx-auto px-4 relative">
+    <div class="flex items-center justify-center mb-12">
+      <i class="fas fa-project-diagram text-4xl text-blue-500 mr-4"></i>
+      <h2 class="text-4xl font-bold" data-aos="fade-up">Featured Projects</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Akashvani Radio -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-broadcast-tower text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">Akashvani Radio</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Modern radio streaming web app for Akashvani/AIR and Indian stations with
+          <strong>HLS playback</strong>, <strong>spectrum visualizer</strong>, <strong>PiP mode</strong>,
+          <strong>smart station sequencing</strong>, and <strong>PWA support</strong>.
+          Built with React 19 + Vite 8.
+        </p>
+        <a href="https://ervijayraghuwanshi.github.io/akashvani-radio/"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Zerodha Support RAG Chatbot -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-robot text-2xl text-blue-500 mr-3"></i>
-            <h3 class="text-xl font-semibold">Zerodha Support RAG Chatbot</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Agentic RAG-based application that simulates a financial support chatbot for Zerodha. Built with
-            <strong>Gradio</strong> for the interface, <strong>LangChain</strong> and <strong>Ollama</strong> for
-            orchestration,
-            <strong>ChromaDB</strong> for vector storage, and <strong>PydanticAI</strong> for schema-validated, reliable
-            responses—
-            delivering accurate, context-aware assistance.
-          </p>
-          <a href="#"
-            class="text-blue-600 dark:text-blue-400 no-underline pointer-events-none inline-flex items-center">
-            View Project <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+
+      <!-- Livy UI -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-terminal text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">Livy UI</h3>
         </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Web-based Spark SQL editor for Apache Livy with <strong>multi-tab editing</strong>,
+          <strong>Monaco autocomplete</strong>, <strong>schema explorer</strong>,
+          <strong>EXPLAIN plan viewer</strong>, and session management.
+        </p>
+        <a href="https://github.com/ErVijayRaghuwanshi/livy-ui"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
-        <!-- CDR & IPDR Analytics with AI-Enhanced Rule Management -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-database text-2xl text-blue-500 mr-3"></i>
-            <h3 class="text-xl font-semibold">CDR & IPDR Analytics — AI Rule Management</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Big Data analytics platform for telecom metadata (CDR/IPDR) focused on SQL rule lifecycle management with
-            built-in AI explanations. Law enforcement officers can understand complex SQL in plain language, validate
-            and extend
-            rules, and rapidly develop new detection logic—without deep SQL expertise.
-          </p>
-          <a href="https://ervijayraghuwanshi.github.io/CDR_IPDR/"
-            class="text-blue-600 dark:text-blue-400 no-underline inline-flex items-center">
-            View Project <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+      <!-- OSINT Scraper REST API -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-network-wired text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">OSINT Scraper REST API</h3>
         </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          High-performance Go/Gin microservice for multi-platform scraping with
+          <strong>modular architecture</strong>, <strong>header rotation + health scoring</strong>,
+          <strong>TTL caching</strong>, and production middleware.
+        </p>
+        <a href="https://github.com/ErVijayRaghuwanshi/osint-scraper"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
-        <!-- Prompt Gallery -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-images text-2xl text-blue-500 mr-3"></i>
-            <h3 class="text-xl font-semibold">Prompt Gallery</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Interactive image search platform featuring <strong>5,000+ AI-generated images</strong>.
-            Users can explore creative prompts, search by keywords, and discover inspiration through
-            an infinite-scroll gallery powered by a fast client-side search engine.
-          </p>
-          <a href="https://ervijayraghuwanshi.github.io/prompt-gallery"
-            class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
-            View Project <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+      <!-- YouTube Video Analytics Dashboard -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="flex items-center mb-4">
+          <i class="fab fa-youtube text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">YouTube Video Analytics Dashboard</h3>
         </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          React-based dashboard using YouTube Data API v3 with
+          <strong>sentiment analysis</strong>, <strong>NER</strong>,
+          <strong>interactive filtering</strong>, and IndexedDB caching for major API call reduction.
+        </p>
+        <a href="https://github.com/ErVijayRaghuwanshi/yt-analytic"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
-        <!-- LightSabre on Laptop -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-shield-alt text-2xl text-blue-500 mr-3"></i>
-            <h3 class="text-xl font-semibold">LightSabre on Laptop</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            Ultra-portable <strong>network traffic monitoring solution</strong> designed to analyze
-            high-speed Ethernet links in <strong>air-gapped environments</strong>.
-            Recognized with an award at <strong>Ideathon 2024</strong> for innovation in cybersecurity
-            and real-time network intelligence.
-          </p>
+      <!-- Zerodha Support RAG Chatbot -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-robot text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">Zerodha Support RAG Chatbot</h3>
         </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Agentic RAG chatbot with <strong>LangChain</strong>, <strong>Ollama</strong>,
+          <strong>ChromaDB</strong>, and <strong>PydanticAI</strong> for schema-validated,
+          context-aware support responses.
+        </p>
+        <a href="#"
+          class="text-blue-600 dark:text-blue-400 no-underline pointer-events-none inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
-
-        <!-- Spring Boot CRUD App -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="flex items-center mb-4">
-            <i class="fas fa-code text-2xl text-blue-500 mr-3"></i>
-            <h3 class="text-xl font-semibold">Spring Boot CRUD App</h3>
-          </div>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            A full-stack <strong>CRUD web application</strong> built with <strong>Spring Boot</strong>,
-            <strong>Hibernate/JPA</strong>, and <strong>MySQL</strong>.
-            It demonstrates RESTful API design, layered architecture, and clean database
-            interactions for managing users with create, read, update, and delete functionality.
-          </p>
-          <a href="https://github.com/ErVijayRaghuwanshi/springboot-crud-app"
-            class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
-            View Project <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+      <!-- CDR & IPDR Analytics -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-database text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">CDR &​amp; IPDR Analytics — AI Rule Management</h3>
         </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Big Data analytics platform for telecom metadata with AI-assisted SQL rule explanation and lifecycle
+          management, enabling rapid rule authoring for non-SQL users.
+        </p>
+        <a href="https://ervijayraghuwanshi.github.io/CDR_IPDR/"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
+      <!-- Prompt Gallery -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-images text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">Prompt Gallery</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Interactive image discovery platform featuring <strong>5,000+ AI-generated images</strong>
+          with keyword search and infinite-scroll browsing.
+        </p>
+        <a href="https://ervijayraghuwanshi.github.io/prompt-gallery"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
 
+      <!-- LightSabre on Laptop -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-shield-alt text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">LightSabre on Laptop</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Ultra-portable network traffic monitoring solution for high-speed Ethernet in air-gapped environments.
+          Awarded at <strong>Ideathon 2024</strong> for cybersecurity innovation.
+        </p>
+      </div>
 
+      <!-- Spring Boot CRUD App -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="flex items-center mb-4">
+          <i class="fas fa-code text-2xl text-blue-500 mr-3"></i>
+          <h3 class="text-xl font-semibold">Spring Boot CRUD App</h3>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Full-stack CRUD app built with <strong>Spring Boot</strong>, <strong>Hibernate/JPA</strong>, and
+          <strong>MySQL</strong>, demonstrating clean layered architecture and REST API design.
+        </p>
+        <a href="https://github.com/ErVijayRaghuwanshi/springboot-crud-app"
+          class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+          View Project <i class="fas fa-arrow-right ml-2"></i>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ================== LEETCODE SECTION ================== -->
   <section id="leetcode" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative">
