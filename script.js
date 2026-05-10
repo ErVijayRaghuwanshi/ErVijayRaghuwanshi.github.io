@@ -292,6 +292,9 @@ window.addEventListener("load", () => {
     getLastUpdated();
     observeLeetCodeStatsInView();
     
+    // Force dark mode
+    document.documentElement.classList.add('dark');
+    
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) setTheme(savedTheme);
 });

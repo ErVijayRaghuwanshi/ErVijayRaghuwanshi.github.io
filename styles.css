@@ -1,3 +1,8 @@
+/* Force Dark Mode */
+html {
+    color-scheme: dark;
+}
+
 /* Custom Styles */
 :root {
     /* Primary Colors (Default Blue Theme) */
