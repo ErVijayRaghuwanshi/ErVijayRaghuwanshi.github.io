@@ -1,8 +1,9 @@
 /* Custom Styles */
 :root {
-    /* Primary Colors */
+    /* Primary Colors (Default Blue Theme) */
     --primary-color: #2563eb; /* Main blue color */
     --secondary-color: #1e40af; /* Darker shade of blue */
+    --theme-primary: #2563eb; /* Theme primary for particles */
 
     /* Light Theme */
     --light-bg: #f3f4f6; /* Very light gray background */
@@ -13,6 +14,31 @@
     --dark-bg: #1f2937; /* Dark gray background */
     --dark-card-bg: #374151; /* Slightly lighter gray for cards in dark mode */
     --dark-text: #f3f4f6; /* Very light gray text for dark backgrounds */
+}
+
+/* Theme Variants */
+.theme-purple {
+    --primary-color: #9333ea;
+    --secondary-color: #7e22ce;
+    --theme-primary: #9333ea;
+}
+
+.theme-green {
+    --primary-color: #16a34a;
+    --secondary-color: #15803d;
+    --theme-primary: #16a34a;
+}
+
+.theme-red {
+    --primary-color: #dc2626;
+    --secondary-color: #b91c1c;
+    --theme-primary: #dc2626;
+}
+
+.theme-orange {
+    --primary-color: #ea580c;
+    --secondary-color: #c2410c;
+    --theme-primary: #ea580c;
 }
 
 /* Particles Background */
@@ -263,6 +289,10 @@ html {
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
+}
+
+.education-item:hover *, .certification-item:hover * {
+    color: white !important;
 }
 
 /* Contact Links */
@@ -593,6 +623,7 @@ footer a:hover i.fab.fa-instagram {
   background: radial-gradient(circle at 30% 107%, 
     #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 footer a:hover i.fas.fa-envelope { color: #EA4335; }
