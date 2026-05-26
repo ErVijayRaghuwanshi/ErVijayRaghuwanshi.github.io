@@ -287,10 +287,55 @@ document.addEventListener('keyup', (e) => {
     if (e.key === "Alt") document.body.classList.remove("show-keytips");
 });
 
+// 11. Project Category Filtering with Premium Transitions
+function initProjectFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card.filter-item');
+
+    if (!filterButtons.length || !projectCards.length) return;
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and add to clicked button
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            // Apply fade-out scale animation
+            projectCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.92)';
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+
+            setTimeout(() => {
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.classList.contains(filterValue)) {
+                        card.classList.remove('hidden-card');
+                        // Trigger reflow
+                        void card.offsetWidth;
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    } else {
+                        card.classList.add('hidden-card');
+                    }
+                });
+
+                // Refresh AOS positioning because card visibility changes layout coordinates
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }, 300);
+        });
+    });
+}
+
 // Initial Load
 window.addEventListener("load", () => {
     getLastUpdated();
     observeLeetCodeStatsInView();
+    initProjectFilters();
     
     // Force dark mode
     document.documentElement.classList.add('dark');
@@ -298,3 +343,4 @@ window.addEventListener("load", () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) setTheme(savedTheme);
 });
+

@@ -656,3 +656,194 @@ footer p {
   opacity: 1 !important;
 }
 
+/* ==========================================================================
+   PREMIUM PORTFOLIO UPDATES (PROJECT FILTERS, TECH TAGS & STATUS BADGES)
+   ========================================================================== */
+
+/* Category Filter Tabs */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.35rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid rgba(37, 99, 235, 0.15);
+    background: transparent;
+    color: #4b5563; /* gray-600 */
+    cursor: pointer;
+}
+
+.dark .filter-btn {
+    color: #d1d5db; /* gray-300 */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* Project Card Extensions */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-icon-box {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(147, 51, 234, 0.1));
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-icon-box {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-width: 1px;
+}
+
+.status-badge.planning {
+    background-color: rgba(234, 88, 12, 0.1);
+    color: #ea580c;
+    border-color: rgba(234, 88, 12, 0.25);
+}
+
+.status-badge.completed {
+    background-color: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+    border-color: rgba(22, 163, 74, 0.25);
+}
+
+.status-badge.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.status-badge.prototype {
+    background-color: rgba(147, 51, 234, 0.1);
+    color: #9333ea;
+    border-color: rgba(147, 51, 234, 0.25);
+}
+
+.status-badge.educational {
+    background-color: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+    border-color: rgba(107, 114, 128, 0.25);
+}
+
+/* Tech Stack Tags */
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    background-color: rgba(37, 99, 235, 0.06);
+    color: var(--primary-color);
+    border-radius: 0.375rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    transition: all 0.2s ease;
+}
+
+.dark .tech-tag {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.tech-tag:hover {
+    background-color: var(--primary-color);
+    color: white !important;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* Custom Project Action Link Buttons */
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.1rem;
+    background-color: var(--primary-color);
+    color: white !important;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+    border: 1px solid transparent;
+}
+
+.project-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+.project-btn.disabled {
+    background-color: rgba(107, 114, 128, 0.08) !important;
+    color: #9ca3af !important;
+    border: 1px solid rgba(107, 114, 128, 0.15);
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+    transform: none !important;
+}
+
+.dark .project-btn.disabled {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #6b7280 !important;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Filter Transitions */
+.filter-item {
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.filter-item.hidden-card {
+    opacity: 0;
+    transform: scale(0.92);
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+
