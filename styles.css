@@ -489,6 +489,11 @@ html {
     .nav-link {
         padding: 0.5rem;
     }
+
+    /* Reduce card padding on mobile for tighter layout visual density */
+    .skill-card, .project-card, .education-card {
+        padding: 1.5rem;
+    }
 }
 
 /* Animations */
