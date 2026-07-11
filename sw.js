@@ -1,4 +1,4 @@
-const CACHE_NAME = "portfolio-cache-v6";
+const CACHE_NAME = "portfolio-cache-v7";
 const urlsToCache = [
   "/",
   "/index.html",
@@ -19,6 +19,12 @@ const urlsToCache = [
   "/icons/icon-256x256.png",
   "/icons/icon-384x384.png",
   "/icons/icon-512x512.png",
+  // Localized LeetCode Badges
+  "/assets/leetcode/badge-background.png",
+  "/assets/leetcode/Introduction_to_Pandas.gif",
+  "/assets/leetcode/25100.gif",
+  "/assets/leetcode/2550.gif",
+  "/assets/leetcode/Top_SQL_50.gif",
   // Cache core CDN resources statically for absolute offline capability
   "https://cdn.tailwindcss.com",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",

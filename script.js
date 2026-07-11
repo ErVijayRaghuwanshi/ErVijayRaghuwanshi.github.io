@@ -123,21 +123,50 @@ async function getLastUpdated() {
     const commitMessageElement = document.getElementById("commit-message");
     if(!lastUpdatedElement) return;
 
+    // 1. Try to load cached commit from localStorage
+    const cachedCommit = localStorage.getItem("github_last_commit");
+    if (cachedCommit) {
+        try {
+            const cachedData = JSON.parse(cachedCommit);
+            const cachedDate = new Date(cachedData.date);
+            lastUpdatedElement.textContent = "Last updated: " + timeAgo(cachedDate) + " (cached)";
+            if (commitMessageElement && cachedData.message) {
+                commitMessageElement.textContent = cachedData.message;
+            }
+        } catch (e) {
+            console.error("Failed to parse cached commit:", e);
+        }
+    }
+
     try {
         // UPDATED: Points to the new .github.io repo
         const response = await fetch(
             "https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi.github.io/commits?per_page=1"
         );
+        if (!response.ok) throw new Error("GitHub API error");
+        
         const data = await response.json();
-        const date = new Date(data[0].commit.committer.date);
+        const dateStr = data[0].commit.committer.date;
+        const date = new Date(dateStr);
         const message = data[0].commit.message;
 
+        // Render fresh content
         lastUpdatedElement.textContent = "Last updated: " + timeAgo(date);
         if(commitMessageElement) commitMessageElement.textContent = message;
 
+        // Save to localStorage
+        localStorage.setItem("github_last_commit", JSON.stringify({
+            date: dateStr,
+            message: message
+        }));
+
         hideLoader();
     } catch (error) {
-        if(lastUpdatedElement) lastUpdatedElement.textContent = "Offline or API limit reached";
+        console.warn("GitHub fetch failed or rate-limited → using cached version");
+        if (!cachedCommit) {
+            lastUpdatedElement.textContent = "Offline";
+            if (commitMessageElement) commitMessageElement.textContent = "Connect to internet to load recent changes";
+        }
         hideLoader();
     }
 }
@@ -189,7 +218,7 @@ async function loadLeetCodeStats() {
     const totalEl = document.getElementById("totalSolved");
     if (!totalEl) return;
 
-    // fallback values (edit if you want)
+    // fallback values
     const fallback = {
         totalSolved: 400,
         totalQuestions: 3851,
@@ -198,8 +227,56 @@ async function loadLeetCodeStats() {
         hardSolved: 25
     };
 
+    function animateCount(el, endValue, duration = 800) {
+        const startValue = parseInt(el.textContent) || 0;
+        if (startValue === endValue) {
+            el.textContent = endValue;
+            return;
+        }
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const value = Math.floor(startValue + (endValue - startValue) * progress);
+            el.textContent = value;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    function updateStats(data = {}) {
+        const totalEl = document.getElementById("totalSolved");
+        const easyEl = document.getElementById("easySolved");
+        const mediumEl = document.getElementById("mediumSolved");
+        const hardEl = document.getElementById("hardSolved");
+
+        if (totalEl)
+            totalEl.textContent = `${data.totalSolved ?? 0} / ${data.totalQuestions ?? 0}`;
+
+        if (easyEl) animateCount(easyEl, data.easySolved ?? 0);
+        if (mediumEl) animateCount(mediumEl, data.mediumSolved ?? 0);
+        if (hardEl) animateCount(hardEl, data.hardSolved ?? 0);
+    }
+
+    // 1. Try to load cached stats from localStorage
+    const cachedStats = localStorage.getItem("leetcode_stats");
+    let hasLoadedCached = false;
+    if (cachedStats) {
+        try {
+            const parsed = JSON.parse(cachedStats);
+            updateStats(parsed);
+            hasLoadedCached = true;
+        } catch (e) {
+            console.error("Failed to parse cached LeetCode stats:", e);
+        }
+    }
+
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 1000); // 5s timeout
+    const timeout = setTimeout(() => controller.abort(), 3000); // 3s timeout
 
     try {
         const res = await fetch(
@@ -212,43 +289,19 @@ async function loadLeetCodeStats() {
         if (!res.ok) throw new Error("API error");
 
         const data = await res.json();
-
+        
+        // Save to localStorage
+        localStorage.setItem("leetcode_stats", JSON.stringify(data));
+        
+        // Render fresh content
         updateStats(data);
     } catch (e) {
-        console.warn("LeetCode fetch failed → using fallback");
-        updateStats(fallback);
-    }
-
-    function animateCount(el, endValue, duration = 800) {
-    const startValue = parseInt(el.textContent) || 0;
-    const startTime = performance.now();
-
-    function update(currentTime) {
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        const value = Math.floor(startValue + (endValue - startValue) * progress);
-        el.textContent = value;
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
+        console.warn("LeetCode fetch failed or timed out → using cached or fallback");
+        clearTimeout(timeout);
+        if (!hasLoadedCached) {
+            updateStats(fallback);
         }
     }
-
-    requestAnimationFrame(update);
-}
-
-    function updateStats(data = {}) {
-    const totalEl = document.getElementById("totalSolved");
-    const easyEl = document.getElementById("easySolved");
-    const mediumEl = document.getElementById("mediumSolved");
-    const hardEl = document.getElementById("hardSolved");
-
-    if (totalEl)
-        totalEl.textContent = `${data.totalSolved ?? 0} / ${data.totalQuestions ?? 0}`;
-
-    if (easyEl) animateCount(easyEl, data.easySolved ?? 0);
-    if (mediumEl) animateCount(mediumEl, data.mediumSolved ?? 0);
-    if (hardEl) animateCount(hardEl, data.hardSolved ?? 0);
-}
 }
 
 function observeLeetCodeStatsInView() {
@@ -274,12 +327,7 @@ function observeLeetCodeStatsInView() {
     leetCodeObserver.observe(leetCodeSection);
 }
 
-// 10. Service Worker & Keyboard Shortcuts
-if ("serviceWorker" in navigator) {
-    // Changed to absolute path for the root domain
-    navigator.serviceWorker.register("/sw.js");
-}
-
+// 10. Keyboard Shortcuts
 document.addEventListener('keydown', (e) => {
     if (e.key === "Alt") document.body.classList.add("show-keytips");
 });
