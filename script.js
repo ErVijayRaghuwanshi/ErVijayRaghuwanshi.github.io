@@ -220,10 +220,10 @@ async function loadLeetCodeStats() {
 
     // fallback values
     const fallback = {
-        totalSolved: 400,
-        totalQuestions: 3851,
-        easySolved: 192,
-        mediumSolved: 183,
+        totalSolved: 411,
+        totalQuestions: 3999,
+        easySolved: 198,
+        mediumSolved: 188,
         hardSolved: 25
     };
 
