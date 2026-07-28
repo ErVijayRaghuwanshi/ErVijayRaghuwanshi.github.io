@@ -12,7 +12,8 @@ export const LeetCode = () => {
   const [animatedStats, setAnimatedStats] = useState({
     easy: 0,
     medium: 0,
-    hard: 0
+    hard: 0,
+    total: 0
   });
   const [loading, setLoading] = useState(true);
 
@@ -48,6 +49,7 @@ export const LeetCode = () => {
         console.warn('Using cached or fallback LeetCode stats:', err);
         if (!cached) {
           triggerCountAnimation({
+            totalSolved: 411,
             easySolved: 198,
             mediumSolved: 188,
             hardSolved: 25
@@ -65,6 +67,7 @@ export const LeetCode = () => {
       const easyTarget = targetData.easySolved || 198;
       const mediumTarget = targetData.mediumSolved || 188;
       const hardTarget = targetData.hardSolved || 25;
+      const totalTarget = targetData.totalSolved || 411;
 
       const animate = (currentTime) => {
         const progress = Math.min((currentTime - startTime) / duration, 1);
@@ -72,7 +75,8 @@ export const LeetCode = () => {
         setAnimatedStats({
           easy: Math.floor(easyTarget * progress),
           medium: Math.floor(mediumTarget * progress),
-          hard: Math.floor(hardTarget * progress)
+          hard: Math.floor(hardTarget * progress),
+          total: Math.floor(totalTarget * progress)
         });
 
         if (progress < 1) {
@@ -111,6 +115,12 @@ export const LeetCode = () => {
     { name: 'Top SQL 50', image: '/assets/leetcode/Top_SQL_50.gif' }
   ];
 
+  // SVG circular progress calculation
+  const radius = 52;
+  const circumference = 2 * Math.PI * radius;
+  const solveRatio = stats.totalQuestions > 0 ? stats.totalSolved / stats.totalQuestions : 0;
+  const strokeDashoffset = circumference - solveRatio * circumference;
+
   return (
     <section id="leetcode" ref={containerRef} className="py-24 bg-white dark:bg-gray-800/40 transition-colors duration-300 relative">
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
@@ -124,66 +134,128 @@ export const LeetCode = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">LeetCode Achievements</h2>
         </div>
 
-        {/* Stats Dashboard Card */}
-        <div className="bg-gray-50/70 dark:bg-gray-900/60 border border-gray-200/50 dark:border-gray-800 p-8 rounded-2xl max-w-2xl mx-auto shadow-lg mb-16 hover:border-theme-primary/20 transition-all duration-300">
+        {/* 2-Column Responsive Dashboard */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto mb-16">
           
-          <div className="text-center mb-8 border-b border-gray-150 dark:border-gray-850 pb-6">
-            <div className="text-4xl md:text-5xl font-black text-theme-primary tracking-tight">
-              {stats.totalSolved} <span className="text-gray-400 dark:text-gray-650 text-2xl">/ {stats.totalQuestions}</span>
-            </div>
-            <p className="text-sm font-semibold text-gray-550 dark:text-gray-450 mt-2 uppercase tracking-wider">
-              Problems Solved
-            </p>
-          </div>
+          {/* Left Column: Solved Stats Cards */}
+          <div className="lg:col-span-5 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
+                Problems Solved
+              </h3>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-8 text-center">
-            <div className="p-3 bg-white dark:bg-gray-850 rounded-xl border border-gray-100 dark:border-gray-800/50">
-              <p className="text-2xl md:text-3xl font-extrabold text-green-500">{animatedStats.easy}</p>
-              <p className="text-xs font-semibold text-gray-550 dark:text-gray-450 mt-1 uppercase tracking-wider">Easy</p>
-            </div>
-            <div className="p-3 bg-white dark:bg-gray-850 rounded-xl border border-gray-100 dark:border-gray-800/50">
-              <p className="text-2xl md:text-3xl font-extrabold text-yellow-500">{animatedStats.medium}</p>
-              <p className="text-xs font-semibold text-gray-550 dark:text-gray-450 mt-1 uppercase tracking-wider">Medium</p>
-            </div>
-            <div className="p-3 bg-white dark:bg-gray-850 rounded-xl border border-gray-100 dark:border-gray-800/50">
-              <p className="text-2xl md:text-3xl font-extrabold text-red-500">{animatedStats.hard}</p>
-              <p className="text-xs font-semibold text-gray-550 dark:text-gray-450 mt-1 uppercase tracking-wider">Hard</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Badges Grid */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <h3 className="text-lg font-bold text-center mb-8 uppercase tracking-widest text-gray-400 dark:text-gray-550">
-            Earned Badges
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {badges.map((badge, idx) => (
-              <div 
-                key={idx} 
-                className="project-card bg-white dark:bg-gray-900 border border-gray-200/40 dark:border-gray-800/80 rounded-2xl p-4 flex flex-col items-center justify-center shadow-md transition-all duration-300 hover:border-theme-primary/30 hover:-translate-y-1"
-              >
-                <div className="relative w-32 h-32 flex items-center justify-center">
-                  {/* Badge Base Background */}
-                  <img 
-                    src="/assets/leetcode/badge-background.png" 
-                    alt="Badge Background" 
-                    className="absolute inset-0 w-full h-full object-contain opacity-80"
-                  />
-                  {/* Badge Animation Icon */}
-                  <img 
-                    src={badge.image} 
-                    alt={badge.name} 
-                    className="absolute w-20 h-20 object-contain z-10"
-                  />
+              {/* Ring Progress Chart */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+                <div className="relative w-32 h-32 shrink-0">
+                  <svg className="w-full h-full transform -rotate-90">
+                    {/* Background Ring */}
+                    <circle
+                      cx="64"
+                      cy="64"
+                      r={radius}
+                      className="stroke-gray-100 dark:stroke-gray-800 fill-none"
+                      strokeWidth="8"
+                    />
+                    {/* Active Ring */}
+                    <circle
+                      cx="64"
+                      cy="64"
+                      r={radius}
+                      className="stroke-theme-primary fill-none transition-all duration-1000 ease-out"
+                      strokeWidth="8"
+                      strokeDasharray={circumference}
+                      strokeDashoffset={strokeDashoffset}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  {/* Inside Text */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <span className="text-2xl font-black text-gray-850 dark:text-white leading-none">
+                      {animatedStats.total}
+                    </span>
+                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-550 uppercase tracking-widest mt-1">
+                      Solved
+                    </span>
+                  </div>
                 </div>
-                <h4 className="text-xs md:text-sm font-bold text-gray-800 dark:text-gray-200 mt-4 text-center">
-                  {badge.name}
-                </h4>
+
+                <div className="text-center sm:text-left">
+                  <p className="text-2xl font-black text-gray-800 dark:text-white leading-tight">
+                    {((solveRatio) * 100).toFixed(1)}%
+                  </p>
+                  <p className="text-xs font-semibold text-gray-450 dark:text-gray-450 mt-1">
+                    Solve Rate of {stats.totalQuestions.toLocaleString()} Total Questions
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Stats Breakdown Items */}
+            <div className="space-y-3.5">
+              {/* Easy Card */}
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800/40 transition-all hover:border-green-500/30">
+                <div className="flex items-center">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 mr-2.5" />
+                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Easy</span>
+                </div>
+                <span className="text-base font-black text-green-500">{animatedStats.easy}</span>
+              </div>
+
+              {/* Medium Card */}
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800/40 transition-all hover:border-yellow-500/30">
+                <div className="flex items-center">
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 mr-2.5" />
+                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Medium</span>
+                </div>
+                <span className="text-base font-black text-yellow-500">{animatedStats.medium}</span>
+              </div>
+
+              {/* Hard Card */}
+              <div className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800/40 transition-all hover:border-red-500/30">
+                <div className="flex items-center">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500 mr-2.5" />
+                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Hard</span>
+                </div>
+                <span className="text-base font-black text-red-500">{animatedStats.hard}</span>
+              </div>
+            </div>
+
           </div>
+
+          {/* Right Column: Badges Showcase */}
+          <div className="lg:col-span-7 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col">
+            <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
+              Earned Badges
+            </h3>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-6 flex-grow">
+              {badges.map((badge, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-gray-50/50 dark:bg-gray-900/40 border border-gray-150 dark:border-gray-800/60 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:border-theme-primary/20 hover:-translate-y-0.5"
+                >
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center shrink-0">
+                    {/* Badge Base Background */}
+                    <img 
+                      src="/assets/leetcode/badge-background.png" 
+                      alt="Badge Background" 
+                      className="absolute inset-0 w-full h-full object-contain opacity-70 dark:opacity-85"
+                    />
+                    {/* Badge Animation Icon */}
+                    <img 
+                      src={badge.image} 
+                      alt={badge.name} 
+                      className="absolute w-16 h-16 sm:w-20 sm:h-20 object-contain z-10"
+                    />
+                  </div>
+                  <h4 className="text-xs font-bold text-gray-800 dark:text-gray-300 mt-3 text-center leading-tight">
+                    {badge.name}
+                  </h4>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         {/* CTA Profile Link */}
