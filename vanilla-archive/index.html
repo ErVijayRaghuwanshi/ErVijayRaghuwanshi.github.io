@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vijay Raghuwanshi | Backend, Big Data & AI Engineer</title>
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ervijayraghuwanshi.github.io/" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Portfolio of Vijay Raghuwanshi, Software Engineer with 4+ years of experience building scalable backend platforms, big data pipelines, distributed systems, AI/RAG applications, and TubeHub (offline media browser) using Go, Python, Java, Spark, Kafka, and cloud-native tools." />
+  <meta name="keywords"
+    content="Vijay Raghuwanshi, Backend Engineer, Data Engineer, Big Data Engineer, AI Engineer, Software Engineer, Python, Go, Java, FastAPI, Spring Boot, Spark, Kafka, PostgreSQL, Elasticsearch, Docker, Kubernetes, AWS, GCP, Portfolio, Project Argus, RadioWave, SignalForge, Livy UI, OSINT Scraper, TubeHub" />
+  <meta name="author" content="Vijay Raghuwanshi" />
+  <meta name="google-site-verification" content="FI2pIGGMUXAMzddV-8nwMPP-dqP9RkPfg98Mfd1dTWo" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vijay Raghuwanshi | Backend, Big Data & AI Engineer" />
+  <meta property="og:description"
+    content="Explore backend engineering, big data pipelines, and AI systems by Vijay Raghuwanshi, including Project Argus, RadioWave, SignalForge, Livy UI, OSINT Scraper API, and TubeHub." />
+  <meta property="og:image" content="https://ervijayraghuwanshi.github.io/assets/thumbnail.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://ervijayraghuwanshi.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vijay Raghuwanshi Portfolio" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vijay Raghuwanshi | Backend, Big Data & AI Engineer" />
+  <meta name="twitter:description"
+    content="Backend engineering, high-scale big data systems, and AI applications by Vijay Raghuwanshi, featuring Project Argus, RadioWave, Livy UI, and TubeHub." />
+  <meta name="twitter:image" content="https://ervijayraghuwanshi.github.io/assets/thumbnail.png" />
+
+  <!-- Styles & Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+  <!-- Loading Screen -->
+  <div class="loading">
+    <div class="loading-content">
+      <div class="loading-logo">VR</div>
+      <p id="last-updated" class="loading-text"></p>
+      <p id="commit-message" class="loading-subtext"></p>
+    </div>
+  </div>
+
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
+  <nav
+    class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-md z-50 transition-colors duration-300">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold">VR</span>
+          </div>
+          <span class="text-xl font-bold">Vijay Raghuwanshi</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+          <!-- Hidden Home -->
+          <a href="#home" class="nav-link relative group" data-key="H">
+          </a>
+
+          <a href="#about" class="nav-link relative group" data-key="A">
+            <i class="fas fa-user-circle mr-2"></i>About
+          </a>
+
+          <a href="#skills" class="nav-link relative group" data-key="S">
+            <i class="fas fa-code mr-2"></i>Skills
+          </a>
+
+          <a href="#education" class="nav-link relative group" data-key="E">
+            <i class="fas fa-graduation-cap mr-2"></i>Education
+          </a>
+
+          <a href="#projects" class="nav-link relative group" data-key="P">
+            <i class="fas fa-project-diagram mr-2"></i>Projects
+          </a>
+
+          <a href="#leetcode" class="nav-link relative group" data-key="L">
+            <i class="fas fa-trophy mr-2"></i>LeetCode
+          </a>
+
+          <a href="#contact" class="nav-link relative group" data-key="C">
+            <i class="fas fa-envelope mr-2"></i>Contact
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="menuToggle" class="md:hidden text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+      class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden bg-white dark:bg-gray-800 shadow-md">
+      <div class="flex flex-col space-y-4 p-4">
+        <a href="#about" class="nav-link"><i class="fas fa-user-circle mr-2"></i>About</a>
+        <a href="#skills" class="nav-link"><i class="fas fa-code mr-2"></i>Skills</a>
+        <a href="#education" class="nav-link"><i class="fas fa-graduation-cap mr-2"></i>Education</a>
+        <a href="#projects" class="nav-link"><i class="fas fa-project-diagram mr-2"></i>Projects</a>
+        <a href="#leetcode" class="nav-link"><i class="fas fa-trophy mr-2"></i>LeetCode</a>
+        <a href="#contact" class="nav-link"><i class="fas fa-envelope mr-2"></i>Contact</a>
+
+      </div>
+    </div>
+
+  </nav>
+
+  <main id="main-content">
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-900/20 dark:to-indigo-900/20">
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+        <div class="text-center md:text-left md:w-1/2">
+          <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0 mb-8">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full animate-pulse"></div>
+            <div
+              class="absolute inset-2 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+              <img src="assets/profile.jpeg" alt="Vijay Raghuwanshi" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="absolute -inset-4 border-4 border-blue-500/20 rounded-full animate-ping"></div>
+          </div>
+
+          <h1 class="text-5xl md:text-6xl font-bold mb-4 hero-text" data-aos="fade-up">Vijay Raghuwanshi</h1>
+
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-3" data-aos="fade-up" data-aos-delay="100">
+            Backend Engineer | Big Data Engineer | AI Application Builder
+          </p>
+
+          <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto md:mx-0" data-aos="fade-up"
+            data-aos-delay="150">
+            4+ years building scalable distributed systems, data-intensive platforms, and AI-powered products with
+            Python,
+            Go, Java, Spark, Kafka, and cloud-native tooling.
+          </p>
+
+          <div class="flex flex-wrap justify-center md:justify-start gap-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://github.com/ErVijayRaghuwanshi" class="btn-primary" target="_blank">
+              <i class="fab fa-github mr-2"></i>GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/ervijayraghuwanshi/" class="btn-primary" target="_blank">
+              <i class="fab fa-linkedin mr-2"></i>LinkedIn
+            </a>
+            <a href="/assets/Vijay_Raghuwanshi_Resume.pdf" class="btn-primary" target="_blank">
+              <i class="fas fa-download mr-2"></i>Download Resume
+            </a>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative w-72 h-72 md:w-88 md:h-88">
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full animate-pulse opacity-40">
+            </div>
+            <div class="absolute inset-4 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
+              <div class="text-center">
+                <i class="fas fa-code text-6xl md:text-8xl text-blue-500 mb-4"></i>
+                <p class="text-xl md:text-xl font-semibold">4+ Years of Experience</p>
+                <p class="text-gray-600 dark:text-gray-300">Building Innovative Solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 animate-bounce text-center">
+        <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300 relative">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative">
+      <div class="flex items-center justify-center mb-12">
+        <i class="fas fa-user-circle text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">About Me</h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <p class="text-lg" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-code text-blue-500 mr-2"></i>
+          I’m a Software Engineer at ClearTrail Technologies focused on backend engineering, big data systems, and
+          AI-driven applications. I build reliable platforms for high-volume analytics and intelligence workflows using
+          microservices and distributed architectures.
+        </p>
+
+        <p class="text-lg" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-database text-blue-500 mr-2"></i>
+          My work includes developing telecom/OSINT data pipelines, optimizing large-scale query performance, and
+          delivering production-ready systems with strong observability and CI/CD practices. I work across Python, Go,
+          Java, Spark, Kafka, PostgreSQL, Elasticsearch, Docker, Kubernetes, AWS, and GCP.
+        </p>
+
+        <p class="text-lg" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-rocket text-blue-500 mr-2"></i>
+          I also build product-focused projects such as <strong>Akashvani Radio</strong>, <strong>Livy UI</strong>, and
+          <strong>OSINT Scraper REST API</strong>—combining clean UX with strong engineering fundamentals.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 relative">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative">
+      <div class="flex items-center justify-center mb-12">
+        <i class="fas fa-code text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">Technical Skills</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-code text-2xl text-blue-500 mr-3"></i>
+            <h3 class="text-xl font-semibold">Languages & Frameworks</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge gap-1"><img src="assets/icons/python-svgrepo-com.svg" alt="Python"
+                class="w-4 h-4">Python</span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/java-svgrepo-com.svg" alt="Java" class="w-4 h-4">Java
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/Spring.svg" alt="Spring Boot" class="w-4 h-4">Spring Boot
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/Hibernate.svg" alt="Hibernate" class="w-4 h-4">Hibernate
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/js-svgrepo-com.svg" alt="JavaScript" class="w-4 h-4">JavaScript
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/FastAPI.svg" alt="FastAPI" class="w-4 h-4">FastAPI
+            </span>
+            <span class="skill-badge">
+              <img src="assets/icons/SQLAlchemy.svg" alt="SQLAlchemy" class="w-4 h-4">SQLAlchemy
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/flask-svgrepo-com.svg" alt="Flask" class="w-4 h-4">Flask
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/tailwindcss-icon-svgrepo-com.svg" alt="TailwindCSS" class="w-4 h-4">TailwindCSS
+            </span>
+            <span class="skill-badge gap-1">
+              <img src="assets/icons/Apache Spark.svg" alt="PySpark" class="w-4 h-4">PySpark
+            </span>
+          </div>
+
+        </div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-tools text-2xl text-blue-500 mr-3"></i>
+            <h3 class="text-xl font-semibold">Tools & Platforms</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge gap-1"><img src="assets/icons/linux-svgrepo-com.svg" alt="Linux"
+                class="w-4 h-4">Linux</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/docker-svgrepo-com.svg" alt="Docker"
+                class="w-4 h-4">Docker</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/aws-svgrepo-com.svg" alt="AWS"
+                class="w-4 h-4">AWS</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/HashiCorp Vagrant.svg" alt="Vagrant"
+                class="w-4 h-4">Vagrant</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/gitlab-svgrepo-com.svg" alt="CI-CD"
+                class="w-4 h-4">CI-CD</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/Jenkins.svg" alt="Jenkins"
+                class="w-4 h-4">Jenkins</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/RabbitMQ.svg" alt="RabbitMQ"
+                class="w-4 h-4">RabbitMQ</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/Apache-Airflow.svg" alt="Airflow"
+                class="w-4 h-4">Airflow</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/Apache-Kafka.svg" alt="Kafka"
+                class="w-4 h-4">Kafka</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/Apache-Hadoop.svg" alt="HDFS"
+                class="w-4 h-4">HDFS</span>
+            <span class="skill-badge gap-1"><img src="assets/icons/solr-svgrepo-com.svg" alt="Solr"
+                class="w-4 h-4">Solr</span>
+          </div>
+        </div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-4">
+            <i class="fas fa-star text-2xl text-blue-500 mr-3"></i>
+            <h3 class="text-xl font-semibold">Specialized Skills</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge"><i class="fas fa-robot mr-1"></i>GenAI</span>
+            <span class="skill-badge"><i class="fab fa-python mr-1"></i>pydantic-ai</span>
+            <span class="skill-badge"><i class="fas fa-brain mr-1"></i>LLMs</span>
+            <span class="skill-badge"><i class="fas fa-link mr-1"></i>LangChain</span>
+            <span class="skill-badge"><i class="fas fa-shield-alt mr-1"></i>Cybersecurity</span>
+            <span class="skill-badge"><i class="fas fa-stream mr-1"></i>Big Data Pipelines</span>
+            <span class="skill-badge"><i class="fas fa-cogs mr-1"></i>N8N</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300 relative">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative">
+      <div class="flex items-center justify-center mb-12">
+        <i class="fas fa-graduation-cap text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">Education & Certifications</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-university text-2xl text-blue-500 mr-3"></i>
+            <h3 class="text-xl font-semibold">Education</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="education-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-graduation-cap text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Bachelor of Technology (BTech), Electrical and Electronics
+                  Engineering</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Rajiv Gandhi Prodyogiki Vishwavidyalaya<br>
+                Grade: First Division With Honours (7.59/10)<br>
+                Aug 2018 - Jun 2021
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Activities: IoT voice assistant project, Solar MPPT major project, Gesture control in
+                Computer Vision
+              </p>
+            </div>
+            <div class="education-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-school text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Diploma in Electrical Engineering</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Rajiv Gandhi Prodyogiki Vishwavidyalaya<br>
+                Grade: 6.51/10<br>
+                2013 - 2016
+              </p>
+            </div>
+            <div class="education-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-book text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Secondary School Certificate (SSC) / Matriculation</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">
+                Nutan Higher Secondary School, Sehore
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                Grade: 70% | Year: 2013
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-certificate text-2xl text-blue-500 mr-3"></i>
+            <h3 class="text-xl font-semibold">Certifications</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="certification-item">
+              <div class="flex items-center mb-2">
+                <i class="fab fa-python text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Python 3 Programming Advanced</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Udemy</p>
+            </div>
+            <div class="certification-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-chart-line text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Exploratory Data Analysis with Python and Pandas</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Coursera</p>
+            </div>
+            <div class="certification-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-network-wired text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">The Bits and Bytes of Computer Networking</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Coursera</p>
+            </div>
+            <div class="certification-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-microchip text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">Internet of Things and Embedded Systems</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Coursera</p>
+            </div>
+            <div class="certification-item">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-server text-blue-500 mr-2"></i>
+                <h4 class="font-semibold">DevOps Beginners to Advanced with Projects</h4>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300">Udemy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 relative">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative">
+      <!-- Section Header -->
+      <div class="flex items-center justify-center mb-6">
+        <i class="fas fa-project-diagram text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">Featured Projects</h2>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="big-data-backend">Big Data & Backend</button>
+        <button class="filter-btn" data-filter="ai-genai">AI & GenAI</button>
+        <button class="filter-btn" data-filter="cybersecurity">Cybersecurity & Systems</button>
+        <button class="filter-btn" data-filter="web-apps">Web Applications</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+        
+        <!-- Project 1: Project Argus -->
+        <div class="project-card filter-item big-data-backend cybersecurity" data-aos="fade-up" data-aos-delay="50">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-server text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Project Argus</h3>
+            </div>
+            <span class="status-badge planning">Planning</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            High-scale, enterprise-grade telecommunication and IP network intelligence platform designed to ingest, process, correlate, and analyze massive volumes of CDR and IPDR in real time.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Ingests 5 to 10 billion events/day horizontally.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Dual-projection storage (Apache Solr & Neo4j graph).</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Regex masking and military-grade PII scrubbers.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Spark</span>
+            <span class="tech-tag">Neo4j</span>
+            <span class="tech-tag">OpenTelemetry</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/argus" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2: Fortress Upload -->
+        <div class="project-card filter-item big-data-backend cybersecurity" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-shield-alt text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Fortress Upload</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Defense-in-depth security demonstration implementing a 4-layer validation and sanitization pipeline to securely handle user media uploads.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Magic number file header validation & malware scanning.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> In-memory Pillow re-encoding to strip polyglot shells.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Stream-based zip-bomb & SSRF quarantine gateways.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Python 3.13</span>
+            <span class="tech-tag">Pillow</span>
+            <span class="tech-tag">libmagic</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/fortress-upload" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3: SignalForge -->
+        <div class="project-card filter-item big-data-backend" data-aos="fade-up" data-aos-delay="150">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-random text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">SignalForge</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Modular, high-fidelity synthetic data generator simulating realistic Call Detail Records (CDR) and IP Detail Records (IPDR) with CGNAT tracking.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Maps Profiles (Users, Devices, geolocated Towers).</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> CGNAT allocation simulation and port-level logs.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Exporters support CSV, JSON, and real-time Kafka streams.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Python 3.8</span>
+            <span class="tech-tag">YAML</span>
+            <span class="tech-tag">Faker</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/signal-forge" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4: Zerodha Support RAG Chatbot -->
+        <div class="project-card filter-item ai-genai" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-robot text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Zerodha Support RAG</h3>
+            </div>
+            <span class="status-badge prototype">Prototype</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Agentic RAG-based application simulating an advanced financial support chatbot system for Zerodha customers.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Schema-validated reliable JSON agentic responses.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> High-accuracy retrieval from structured database layers.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Structured AI guardrails powered by PydanticAI.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Gradio</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">Ollama</span>
+            <span class="tech-tag">ChromaDB</span>
+            <span class="tech-tag">PydanticAI</span>
+          </div>
+          <div class="pt-2">
+            <button class="project-btn disabled" disabled>
+              PoC / Closed Source <i class="fas fa-lock ml-1.5 text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: CDR & IPDR Analytics -->
+        <div class="project-card filter-item big-data-backend ai-genai" data-aos="fade-up" data-aos-delay="250">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-chart-line text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">CDR & IPDR Analytics</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Big Data analytics platform for telecom metadata focused on SQL rule lifecycle management and interactive detection logics.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> AI-powered SQL rule explanations for non-technical users.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Robust SQL rule syntax validation & schema checking.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> High-performance execution over distributed telecom stores.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Big Data</span>
+            <span class="tech-tag">SQL Analytics</span>
+            <span class="tech-tag">AI Rules</span>
+            <span class="tech-tag">Lifecycle Management</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://ervijayraghuwanshi.github.io/CDR_IPDR/" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6: Prompt Gallery -->
+        <div class="project-card filter-item web-apps ai-genai" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-images text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Prompt Gallery</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Interactive image search platform and prompt repository featuring 5,000+ high-quality AI-generated images.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Sub-millisecond client-side tag search index.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Infinite-scroll layout with optimized image payloads.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Caching mechanisms reducing server roundtrips by 90%.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">HTML5/CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">AI Prompting</span>
+            <span class="tech-tag">Client Caching</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://ervijayraghuwanshi.github.io/prompt-gallery" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 7: LightSabre on Laptop -->
+        <div class="project-card filter-item cybersecurity" data-aos="fade-up" data-aos-delay="350">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-bolt text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">LightSabre on Laptop</h3>
+            </div>
+            <span class="status-badge prototype">Prototype</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Ultra-portable network traffic monitoring solution capturing high-speed Ethernet links in air-gapped forensic environments.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Real-time 10 Gbps packet capture via custom FPGA.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Awarded at Ideathon 2024 for cybersecurity innovation.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Custom Linux kernel modules and Wireshark dissectors.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">FPGA</span>
+            <span class="tech-tag">Linux Kernel</span>
+            <span class="tech-tag">Wireshark</span>
+          </div>
+          <div class="pt-2">
+            <button class="project-btn disabled" disabled>
+              Hardware PoC <i class="fas fa-microchip ml-1.5 text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 8: Spring Boot CRUD App -->
+        <div class="project-card filter-item web-apps big-data-backend" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-code text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Spring Boot CRUD</h3>
+            </div>
+            <span class="status-badge educational">Educational</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Full-stack web application demonstrating layered backend architectures, RESTful API contract designs, and relational integrations.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Strictly decoupled Controller-Service-DAO layers.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Hibernate/JPA ORM schema mappings and persistence.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Structured response entities with MySQL transaction boundaries.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">Hibernate</span>
+            <span class="tech-tag">JPA</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/springboot-crud-app" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 9: YouTube Video Analytics -->
+        <div class="project-card filter-item web-apps ai-genai" data-aos="fade-up" data-aos-delay="450">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fab fa-youtube text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">YouTube Analytics</h3>
+            </div>
+            <span class="status-badge active">Active</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Interactive analytics dashboard leveraging YouTube Data API v3 for deep insights into audience sentiment and video performance.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> In-browser NLP sentiment parsing & Named Entity Recognition.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Client caching (IndexedDB) yielding 80-90% API reduction.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Dynamic metric aggregations charted through Recharts.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">React 18</span>
+            <span class="tech-tag">Tailwind 4</span>
+            <span class="tech-tag">Recharts</span>
+            <span class="tech-tag">NLP</span>
+            <span class="tech-tag">IndexedDB</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/yt-analytic" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 10: Livy UI -->
+        <div class="project-card filter-item big-data-backend web-apps" data-aos="fade-up" data-aos-delay="500">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-terminal text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Livy UI</h3>
+            </div>
+            <span class="status-badge active">Active</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Modern web-based SQL editor for Apache Livy, enabling users to compose, run, and explore Spark SQL queries directly from the browser.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Multi-tab editor with 300+ Spark function autocompletes.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Interactive SQL snippet tab-stops & Hive schema explorer.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Built-in backend-free CORS proxy routing remote connections.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Tailwind 4</span>
+            <span class="tech-tag">Monaco</span>
+            <span class="tech-tag">Livy</span>
+            <span class="tech-tag">Spark SQL</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/livy-ui" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project: Livy-Next -->
+        <div class="project-card filter-item big-data-backend" data-aos="fade-up" data-aos-delay="525">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-server text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">Livy-Next</h3>
+            </div>
+            <span class="status-badge active">Active</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Lightweight successor to Apache Livy written in Go, acting as a gateway that translates REST APIs to gRPC calls over Spark Connect.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Spark 4.x Connect Native integration over gRPC (`sc://`).</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Embedded dark-mode interactive SQL editor & logs console UI.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Custom naming, offline mock mode, and graceful session release.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Golang</span>
+            <span class="tech-tag">Spark Connect</span>
+            <span class="tech-tag">gRPC</span>
+            <span class="tech-tag">Chi Router</span>
+            <span class="tech-tag">Swagger</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/livy-next" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 11: OSINT Scraper REST API -->
+        <div class="project-card filter-item big-data-backend cybersecurity" data-aos="fade-up" data-aos-delay="550">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-spider text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">OSINT Scraper API</h3>
+            </div>
+            <span class="status-badge active">Active</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            High-performance, scalable OSINT scraping microservice supporting Instagram, X, Snapchat, and Jaco.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Hot-reload header rotation (fsnotify) with health scoring.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Highly concurrent engine using Go channels & Gin framework.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Production-hardened TTL caching and custom middleware.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">Golang</span>
+            <span class="tech-tag">Gin</span>
+            <span class="tech-tag">Swagger</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">fsnotify</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/osint-scraper" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 12: RadioWave -->
+        <div class="project-card filter-item web-apps" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-broadcast-tower text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">RadioWave</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Modern radio streaming application supporting global HLS audio streams, real spectrum visualizations, and full PWA offline functionality.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Web Audio API AnalyserNode-powered spectrum visualizer.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Picture-in-Picture mode with automatic lock triggers.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> PWA with offline shell and background media session sync.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Vite 8</span>
+            <span class="tech-tag">Tailwind 4</span>
+            <span class="tech-tag">hls.js</span>
+            <span class="tech-tag">Web Audio</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://ervijayraghuwanshi.github.io/radio-wave/" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 13: TubeHub -->
+        <div class="project-card filter-item web-apps" data-aos="fade-up" data-aos-delay="650">
+          <div class="flex justify-between items-start mb-4">
+            <div class="flex items-center">
+              <div class="project-icon-box mr-3">
+                <i class="fas fa-play-circle text-xl"></i>
+              </div>
+              <h3 class="text-lg font-bold">TubeHub</h3>
+            </div>
+            <span class="status-badge completed">Completed</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            Premium YouTube to MP3 & MP4 Converter & Offline Browser Media Center enabling users to convert, transcode, and store media locally for offline playback.
+          </p>
+          <div class="mb-4">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Features</h4>
+            <ul class="space-y-1 text-xs text-gray-500 dark:text-gray-400">
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Multi-quality MP3 & MP4 extraction with Cloudflare Turnstile security.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> IndexedDB binary database storage bypassing standard browser storage limits.</li>
+              <li><i class="fas fa-check text-blue-500 mr-1.5"></i> Theater mode overlay with native Chrome auto-PiP on tab switching.</li>
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+            <span class="tech-tag">React 19</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Tailwind 4</span>
+            <span class="tech-tag">IndexedDB</span>
+            <span class="tech-tag">Cloudflare Turnstile</span>
+          </div>
+          <div class="pt-2">
+            <a href="https://github.com/ErVijayRaghuwanshi/TubeHub" target="_blank" class="project-btn">
+              View Project <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================== LEETCODE SECTION ================== -->
+  <section id="leetcode" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 relative">
+    <div class="container mx-auto px-4 relative">
+
+      <!-- Section Header -->
+      <div class="flex items-center justify-center mb-12">
+        <i class="fas fa-award text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">LeetCode Badges</h2>
+      </div>
+
+      <!-- Subtitle -->
+      <!-- <p class="text-center text-lg text-gray-600 dark:text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="100">
+        Recognitions and milestones earned on <span class="font-semibold text-blue-500"><a
+            href="https://leetcode.com/u/ervijayraghuwanshi/" target="_blank">LeetCode</a></span>.
+      </p> -->
+
+      <!-- ================== Stats Card ================== -->
+      <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 max-w-2xl mx-auto mb-16" data-aos="fade-up"
+        data-aos-delay="100">
+        <!-- Total Solved -->
+        <div class="text-center mb-8">
+          <div id="totalSolved" class="text-4xl font-bold text-blue-600 dark:text-blue-400">
+            Loading...
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 mt-2">Problems Solved</p>
+        </div>
+
+        <!-- Breakdown -->
+        <div class="grid grid-cols-3 gap-6 text-center">
+          <div>
+            <p id="easySolved" class="text-2xl font-bold text-green-500">--</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Easy</p>
+          </div>
+          <div>
+            <p id="mediumSolved" class="text-2xl font-bold text-yellow-500">--</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Medium</p>
+          </div>
+          <div>
+            <p id="hardSolved" class="text-2xl font-bold text-red-500">--</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Hard</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================== Badges Grid ================== -->
+      <div>
+        <!-- <h3 class="text-2xl font-semibold text-center mb-10 text-gray-800 dark:text-white">LeetCode Badges</h3> -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Badge 1 -->
+          <div class="project-card text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="relative w-40 h-40 mx-auto flex items-center justify-center mb-4">
+              <img src="assets/leetcode/badge-background.png" alt="Badge Background"
+                class="w-full h-full">
+              <img src="assets/leetcode/Introduction_to_Pandas.gif"
+                alt="Introduction to Pandas" class="absolute w-28">
+            </div>
+            <h3 class="text-lg font-semibold">Introduction to Pandas</h3>
+          </div>
+
+          <!-- Badge 2 -->
+          <div class="project-card text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="relative w-40 h-40 mx-auto flex items-center justify-center mb-4">
+              <img src="assets/leetcode/badge-background.png" alt="Badge Background"
+                class="w-full h-full">
+              <img src="assets/leetcode/25100.gif" alt="25/100 Problems"
+                class="absolute w-28">
+            </div>
+            <h3 class="text-lg font-semibold">25/100 Problems Solved</h3>
+          </div>
+
+          <!-- Badge 3 -->
+          <div class="project-card text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="relative w-40 h-40 mx-auto flex items-center justify-center mb-4">
+              <img src="assets/leetcode/badge-background.png" alt="Badge Background"
+                class="w-full h-full">
+              <img src="assets/leetcode/2550.gif" alt="25/50 Problems"
+                class="absolute w-28">
+            </div>
+            <h3 class="text-lg font-semibold">25/50 Problems Solved</h3>
+          </div>
+          <!-- Badge 4 -->
+          <div class="project-card text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="relative w-40 h-40 mx-auto flex items-center justify-center mb-4">
+              <img src="assets/leetcode/badge-background.png" alt="Badge Background"
+                class="w-full h-full">
+              <img src="assets/leetcode/Top_SQL_50.gif" alt="Top SQL 50"
+                class="absolute w-28">
+            </div>
+            <h3 class="text-lg font-semibold">Top SQL 50</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================== CTA ================== -->
+      <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+        <a href="https://leetcode.com/u/ervijayraghuwanshi/" target="_blank"
+          class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition">
+          View Full LeetCode Profile →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="container mx-auto px-4 relative">
+      <div class="flex items-center justify-center mb-12">
+        <i class="fas fa-envelope text-4xl text-blue-500 mr-4"></i>
+        <h2 class="text-4xl font-bold" data-aos="fade-up">Get in Touch</h2>
+      </div>
+      <div class="max-w-xl mx-auto text-center">
+        <p class="mb-8 text-lg" data-aos="fade-up" data-aos-delay="100">
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+          visions.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+
+      <!-- Social Links -->
+      <div class="flex flex-wrap justify-center space-x-4 mb-4">
+        <a href="https://github.com/ErVijayRaghuwanshi" target="_blank"
+          class="text-gray-400 hover:text-white transition group">
+          <i class="fab fa-github text-2xl group-hover:animate-scale-in"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ervijayraghuwanshi/" target="_blank"
+          class="text-gray-400 hover:text-white transition group">
+          <i class="fab fa-linkedin text-2xl group-hover:animate-scale-in"></i>
+        </a>
+        <a href="https://wa.me/919755491130?text=Hello%20Vijay,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect."
+          class="text-gray-400 hover:text-white transition group" target="_blank">
+          <i class="fab fa-whatsapp text-xl group-hover:animate-scale-in"></i>
+        </a>
+
+        <a href="https://x.com/ErVijayRaghu1c" target="_blank" class="text-gray-400 hover:text-white transition group">
+          <i class="fab fa-x text-2xl group-hover:animate-scale-in"></i>
+        </a>
+        <a href="https://instagram.com/er.vijayraghuwanshi" target="_blank"
+          class="text-gray-400 hover:text-white transition group">
+          <i class="fab fa-instagram text-2xl group-hover:animate-scale-in"></i>
+        </a>
+        <a target="_blank"
+          href="mailto:ervijayraghuwanshi@gmail.com?subject=Portfolio%20Contact&body=Hello%20Vijay,%0A%0AI%20just%20checked%20your%20portfolio%20and%20would%20like%20to%20connect."
+          class="text-gray-400 hover:text-white transition group">
+          <i class="fas fa-envelope text-xl group-hover:animate-scale-in"></i>
+        </a>
+
+        <a href="tel:+919755491130" target="_blank" class="text-gray-400 hover:text-white transition group">
+          <i class="fas fa-phone text-2xl group-hover:animate-scale-in"></i>
+        </a>
+      </div>
+
+      <!-- Divider -->
+      <!-- <hr class="border-gray-600 my-4"> -->
+
+      <!-- Footer Text -->
+      <p class="text-gray-400 text-sm">&copy; 2026 Vijay Raghuwanshi. All rights reserved.</p>
+
+      <!-- Back to Top -->
+      <!-- <a href="#top" class="block mt-4 text-sm text-gray-400 hover:text-white transition">
+        ↑ Back to Top
+      </a> -->
+    </div>
+  </footer>
+
+
+  <!-- Premium Update Notification Toast -->
+  <div id="update-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900/95 dark:bg-gray-800/95 text-gray-100 border border-blue-500/30 backdrop-blur-md px-5 py-3.5 rounded-xl shadow-2xl z-[9999] flex items-center gap-4 transition-all duration-500 transform translate-y-12 opacity-0 pointer-events-none">
+    <div class="flex items-center gap-2.5">
+      <div class="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></div>
+      <span class="text-sm font-medium">A new version is available!</span>
+    </div>
+    <button id="refresh-btn" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-3 py-1.5 rounded-md transition-colors shadow-md active:scale-95">
+      Update Now
+    </button>
+  </div>
+  <script>
+    function showUpdateToast(worker) {
+      const toast = document.getElementById("update-toast");
+      if (!toast) return;
+      
+      toast.classList.remove("translate-y-12", "opacity-0", "pointer-events-none");
+      toast.classList.add("translate-y-0", "opacity-100", "pointer-events-auto");
+
+      document.getElementById("refresh-btn").onclick = () => {
+        worker.postMessage({ action: "skipWaiting" });
+      };
+    }
+  </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      // Register service worker pointing to root domain
+      navigator.serviceWorker.register('/sw.js').then(reg => {
+        // If there's an update already waiting
+        if (reg.waiting) {
+          showUpdateToast(reg.waiting);
+        }
+
+        reg.onupdatefound = () => {
+          const newWorker = reg.installing;
+          newWorker.onstatechange = () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              showUpdateToast(newWorker);
+            }
+          };
+        };
+      });
+
+      // Reload page when new service worker takes control
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+          refreshing = true;
+          window.location.reload();
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  --color-theme-primary: var(--primary-color);
+  --color-theme-secondary: var(--secondary-color);
+  --color-dark-card: #1f2937;
+  --animate-scale-in: scale-in 0.3s ease-out forwards;
+}
+
+@keyframes scale-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+:root {
+  /* Default Blue Theme */
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --theme-primary: #2563eb;
+
+  /* Theme Tokens */
+  --light-bg: #f3f4f6;
+  --light-text: #111827;
+  --text-color: #1f2937;
+  --dark-bg: #111827;
+  --dark-card-bg: #1f2937;
+  --dark-text: #f3f4f6;
+}
+
+/* Theme Variants */
+.theme-purple {
+  --primary-color: #9333ea;
+  --secondary-color: #7e22ce;
+  --theme-primary: #9333ea;
+}
+
+.theme-green {
+  --primary-color: #16a34a;
+  --secondary-color: #15803d;
+  --theme-primary: #16a34a;
+}
+
+.theme-red {
+  --primary-color: #dc2626;
+  --secondary-color: #b91c1c;
+  --theme-primary: #dc2626;
+}
+
+.theme-orange {
+  --primary-color: #ea580c;
+  --secondary-color: #c2410c;
+  --theme-primary: #ea580c;
+}
+
+/* Base Customizations */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Particles Canvas */
+#particles-canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Grid Pattern Background */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Keytips display when ALT key is pressed */
+.keytip {
+  display: none;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  z-index: 20;
+}
+
+.show-keytips .keytip {
+  display: block;
+}
+
+/* Button & Card Animations */
+.btn-primary-custom {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-primary-custom:hover::before {
+  left: 100%;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Card & Hover Effects */
+.card-hover-effect {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  background: rgba(31, 41, 55, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.card-hover-effect::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.card-hover-effect:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-color);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Skill Badges */
+.skill-badge-custom {
+  background: rgba(55, 65, 81, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.skill-badge-custom:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+  border-color: var(--primary-color);
+}
+
+/* Nav Link Hover Underlines */
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link-custom:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Slide item animations */
+.slide-item {
+  transition: all 0.3s ease;
+}
+
+.slide-item:hover {
+  transform: translateX(8px);
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.slide-item:hover * {
+  color: white !important;
+}
+
+/* Hide Scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide Scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
