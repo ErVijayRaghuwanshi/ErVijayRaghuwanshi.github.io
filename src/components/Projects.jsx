@@ -286,7 +286,7 @@ export const Projects = () => {
               key={project.title}
               data-aos="fade-up"
               data-aos-delay={(idx % 3) * 100 + 50}
-              className="project-card card-hover-effect rounded-2xl p-6 md:p-8 flex flex-col h-full animate-scale-in"
+              className="project-card card-hover-effect rounded-2xl p-6 md:p-8 flex flex-col h-full"
             >
               {/* Card Header */}
               <div className="flex justify-between items-start mb-4">
