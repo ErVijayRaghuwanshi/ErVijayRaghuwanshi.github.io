@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import { ParticlesBg } from './components/ParticlesBg';
 import { Navbar } from './components/Navbar';
@@ -10,10 +10,16 @@ import { Projects } from './components/Projects';
 import { LeetCode } from './components/LeetCode';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { LoadingScreen } from './components/LoadingScreen';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <ThemeProvider>
+      {/* Fullscreen Loader Screen */}
+      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+
       {/* Background Particles Layer */}
       <ParticlesBg />
 

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { useTheme } from './ThemeContext';
 
 export const ParticlesBg = () => {
   const canvasRef = useRef(null);
-  const { activeTheme } = useTheme();
+  const particleColor = '#2563eb';
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -69,7 +68,7 @@ export const ParticlesBg = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = activeTheme.color + '80'; // 50% opacity in hex is 80
+        ctx.fillStyle = particleColor + '80'; // 50% opacity in hex is 80
         ctx.fill();
       }
 
@@ -109,7 +108,7 @@ export const ParticlesBg = () => {
 
           if (dist < connectionDistance) {
             const alpha = (1 - dist / connectionDistance) * 0.15;
-            ctx.strokeStyle = `${activeTheme.color}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`;
+            ctx.strokeStyle = `${particleColor}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -123,7 +122,7 @@ export const ParticlesBg = () => {
           const distToMouse = Math.hypot(p1.x - mouse.x, p1.y - mouse.y);
           if (distToMouse < mouse.radius) {
             const alpha = (1 - distToMouse / mouse.radius) * 0.4;
-            ctx.strokeStyle = `${activeTheme.color}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`;
+            ctx.strokeStyle = `${particleColor}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -157,7 +156,7 @@ export const ParticlesBg = () => {
       window.removeEventListener('click', handleMouseClick);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [activeTheme.color]); // Re-init connections when active color changes
+  }, []);
 
   return <canvas id="particles-canvas" ref={canvasRef} />;
 };
