@@ -131,14 +131,14 @@ export const LeetCode = () => {
           <div className="w-12 h-12 bg-theme-primary/10 rounded-xl flex items-center justify-center mr-4">
             <i className="fas fa-award text-2xl text-theme-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">LeetCode Achievements</h2>
+          <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-extrabold tracking-tight">LeetCode Achievements</h2>
         </div>
 
         {/* 2-Column Responsive Dashboard */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto mb-16">
           
           {/* Left Column: Solved Stats Cards */}
-          <div className="lg:col-span-5 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col justify-between">
+          <div data-aos="fade-up" data-aos-delay="100" className="lg:col-span-5 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
                 Problems Solved
@@ -223,7 +223,7 @@ export const LeetCode = () => {
           </div>
 
           {/* Right Column: Badges Showcase */}
-          <div className="lg:col-span-7 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col">
+          <div data-aos="fade-up" data-aos-delay="200" className="lg:col-span-7 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col">
             <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
               Earned Badges
             </h3>
@@ -259,7 +259,7 @@ export const LeetCode = () => {
         </div>
 
         {/* CTA Profile Link */}
-        <div className="text-center">
+        <div data-aos="fade-up" data-aos-delay="400" className="text-center">
           <a 
             href="https://leetcode.com/u/ervijayraghuwanshi/" 
             target="_blank" 

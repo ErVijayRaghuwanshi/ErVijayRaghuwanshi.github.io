@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
 import { ParticlesBg } from './components/ParticlesBg';
 import { Navbar } from './components/Navbar';
@@ -11,9 +11,19 @@ import { LeetCode } from './components/LeetCode';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LoadingScreen } from './components/LoadingScreen';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      offset: 100,
+      once: true
+    });
+  }, []);
 
   return (
     <ThemeProvider>

@@ -60,7 +60,7 @@ export const Skills = () => {
           <div className="w-12 h-12 bg-theme-primary/10 rounded-xl flex items-center justify-center mr-4">
             <i className="fas fa-code text-2xl text-theme-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Technical Skills</h2>
+          <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-extrabold tracking-tight">Technical Skills</h2>
         </div>
 
         {/* Categories Grid */}
@@ -68,6 +68,8 @@ export const Skills = () => {
           {categories.map((cat, idx) => (
             <div 
               key={idx} 
+              data-aos="fade-up"
+              data-aos-delay={(idx + 1) * 100}
               className="bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm transition-all duration-300 hover:border-theme-primary/20 hover:-translate-y-1"
             >
               <div className="flex items-center mb-6">

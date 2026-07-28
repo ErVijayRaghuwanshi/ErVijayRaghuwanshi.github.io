@@ -25,19 +25,19 @@ export const Hero = () => {
               <div className="absolute -inset-2 border-2 border-theme-primary/30 rounded-full animate-ping opacity-40 pointer-events-none" />
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-black mb-3 tracking-tight bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent">
+            <h1 data-aos="fade-up" className="text-4xl md:text-6xl font-black mb-3 tracking-tight bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent">
               Vijay Raghuwanshi
             </h1>
 
-            <h2 className="text-xl md:text-2xl font-semibold text-theme-primary dark:text-theme-primary/90 mb-4">
+            <h2 data-aos="fade-up" data-aos-delay="100" className="text-xl md:text-2xl font-semibold text-theme-primary dark:text-theme-primary/90 mb-4">
               Backend Engineer | Big Data Engineer | AI Application Builder
             </h2>
 
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="150" className="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
               4+ years building scalable distributed systems, data-intensive platforms, and AI-powered products with Python, Go, Java, Spark, Kafka, and cloud-native tooling.
             </p>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <div data-aos="fade-up" data-aos-delay="200" className="flex flex-wrap justify-center md:justify-start gap-4">
               <a 
                 href="https://github.com/ErVijayRaghuwanshi" 
                 target="_blank" 

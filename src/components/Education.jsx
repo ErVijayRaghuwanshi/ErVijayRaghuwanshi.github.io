@@ -42,14 +42,14 @@ export const Education = () => {
           <div className="w-12 h-12 bg-theme-primary/10 rounded-xl flex items-center justify-center mr-4">
             <i className="fas fa-graduation-cap text-2xl text-theme-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Education & Certifications</h2>
+          <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-extrabold tracking-tight">Education & Certifications</h2>
         </div>
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           
           {/* Left Column: Education */}
-          <div className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
+          <div data-aos="fade-up" data-aos-delay="100" className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
             <div className="flex items-center mb-6 border-b border-gray-150 dark:border-gray-850 pb-4">
               <i className="fas fa-university text-2xl text-theme-primary mr-3" />
               <h3 className="text-xl font-bold tracking-tight">Education</h3>
@@ -89,7 +89,7 @@ export const Education = () => {
           </div>
 
           {/* Right Column: Certifications */}
-          <div className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
+          <div data-aos="fade-up" data-aos-delay="200" className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
             <div className="flex items-center mb-6 border-b border-gray-150 dark:border-gray-850 pb-4">
               <i className="fas fa-certificate text-2xl text-theme-primary mr-3" />
               <h3 className="text-xl font-bold tracking-tight">Certifications</h3>

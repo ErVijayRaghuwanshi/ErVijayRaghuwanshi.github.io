@@ -1,8 +1,13 @@
-import React, { useState, useTransition } from 'react';
+import React, { useState, useTransition, useEffect } from 'react';
+import AOS from 'aos';
 
 export const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [activeFilter]);
 
   const filters = [
     { id: 'all', label: 'All Projects' },
@@ -246,11 +251,11 @@ export const Projects = () => {
           <div className="w-12 h-12 bg-theme-primary/10 rounded-xl flex items-center justify-center mr-4">
             <i className="fas fa-project-diagram text-2xl text-theme-primary" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Featured Projects</h2>
+          <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-extrabold tracking-tight">Featured Projects</h2>
         </div>
 
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto px-2">
+        <div data-aos="fade-up" data-aos-delay="100" className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto px-2">
           {filters.map((filter) => (
             <button
               key={filter.id}
@@ -272,9 +277,11 @@ export const Projects = () => {
             isPending ? 'opacity-50' : 'opacity-100'
           }`}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.title}
+              data-aos="fade-up"
+              data-aos-delay={(idx % 3) * 100 + 50}
               className="project-card card-hover-effect rounded-2xl p-6 md:p-8 flex flex-col h-full animate-scale-in"
             >
               {/* Card Header */}
