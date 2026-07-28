@@ -70,7 +70,7 @@ export const Skills = () => {
               key={idx} 
               data-aos="fade-up"
               data-aos-delay={(idx + 1) * 100}
-              className="bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm transition-all duration-300 hover:border-theme-primary/20 hover:-translate-y-1"
+              className="skill-card bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm"
             >
               <div className="flex items-center mb-6">
                 <div className="w-9 h-9 bg-theme-primary/10 rounded-lg flex items-center justify-center mr-3">
