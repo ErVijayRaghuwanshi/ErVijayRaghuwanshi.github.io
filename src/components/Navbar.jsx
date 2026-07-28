@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeSelector } from './ThemeSelector';
 
 export const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -102,15 +101,10 @@ export const Navbar = () => {
               </button>
             ))}
 
-            {/* Embedded Theme Selector */}
-            <div className="pl-4 border-l border-gray-200 dark:border-gray-800">
-              <ThemeSelector />
-            </div>
           </div>
 
           {/* Mobile Menu Actions */}
           <div className="flex md:hidden items-center space-x-3">
-            <ThemeSelector />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-gray-700 dark:text-gray-300 text-xl focus:outline-none p-1"
