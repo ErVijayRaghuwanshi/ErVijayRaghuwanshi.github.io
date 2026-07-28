@@ -6,7 +6,10 @@ export const Projects = () => {
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
-    AOS.refresh();
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+    return () => clearTimeout(timer);
   }, [activeFilter]);
 
   const filters = [
@@ -255,7 +258,7 @@ export const Projects = () => {
         </div>
 
         {/* Filter Buttons */}
-        <div data-aos="fade-up" data-aos-delay="100" className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto px-2">
+        <div data-aos="fade-up" data-aos-delay="50" className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto px-2">
           {filters.map((filter) => (
             <button
               key={filter.id}
@@ -273,6 +276,7 @@ export const Projects = () => {
 
         {/* Projects Grid */}
         <div 
+          key={activeFilter}
           className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 transition-opacity duration-300 ${
             isPending ? 'opacity-50' : 'opacity-100'
           }`}
