@@ -9,7 +9,7 @@ export const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
           
           {/* Left Column: Text Content */}
           <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start">
