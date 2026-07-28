@@ -49,36 +49,37 @@ export const Education = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           
           {/* Left Column: Education */}
-          <div data-aos="fade-up" data-aos-delay="100" className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
-            <div className="flex items-center mb-6 border-b border-gray-150 dark:border-gray-850 pb-4">
+          <div 
+            data-aos="fade-up" 
+            data-aos-delay="100" 
+            className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
+          >
+            <div className="flex items-center mb-8">
               <i className="fas fa-university text-2xl text-theme-primary mr-3" />
-              <h3 className="text-xl font-bold tracking-tight">Education</h3>
+              <h3 className="text-xl font-bold tracking-tight text-gray-850 dark:text-white">Education</h3>
             </div>
             
-            <div className="space-y-4">
+            <div className="relative border-l-2 border-theme-primary/30 pl-6 ml-2 space-y-8">
               {educationList.map((edu, idx) => (
-                <div 
-                  key={idx} 
-                  className="slide-item p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm"
-                >
-                  <div className="flex items-start mb-2">
-                    <i className="fas fa-graduation-cap text-theme-primary mr-2.5 mt-1 text-sm shrink-0" />
-                    <div>
-                      <h4 className="font-bold text-sm md:text-base text-gray-850 dark:text-white">
-                        {edu.title}
-                      </h4>
-                      {edu.major && (
-                        <p className="text-xs font-semibold text-theme-primary/80 mt-0.5">{edu.major}</p>
-                      )}
-                    </div>
-                  </div>
+                <div key={idx} className="relative">
+                  {/* Timeline bullet dot */}
+                  <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full bg-theme-primary border-4 border-white dark:border-gray-900" />
                   
-                  <div className="pl-6 text-xs text-gray-600 dark:text-gray-400 space-y-1">
-                    <p className="font-semibold text-gray-700 dark:text-gray-300">{edu.institution}</p>
-                    <p>Grade: {edu.grade}</p>
-                    <p className="font-medium text-theme-primary/70">{edu.duration}</p>
+                  <div>
+                    <h4 className="font-bold text-base md:text-lg text-gray-850 dark:text-white leading-snug">
+                      {edu.title}
+                    </h4>
+                    
+                    <p className="text-theme-primary font-semibold text-sm mt-1">
+                      {edu.institution} {edu.major ? `| ${edu.major}` : ''}
+                    </p>
+                    
+                    <p className="text-gray-500 dark:text-gray-400 text-xs font-semibold mt-1">
+                      {edu.duration} {edu.grade ? `• Grade: ${edu.grade}` : ''}
+                    </p>
+
                     {edu.activities && (
-                      <p className="mt-1.5 pt-1.5 border-t border-gray-100 dark:border-gray-800 text-[11px] leading-relaxed italic text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mt-2 italic">
                         Activities: {edu.activities}
                       </p>
                     )}
@@ -89,23 +90,26 @@ export const Education = () => {
           </div>
 
           {/* Right Column: Certifications */}
-          <div data-aos="fade-up" data-aos-delay="200" className="bg-gray-50/50 dark:bg-gray-850 border border-gray-200/50 dark:border-gray-800/80 p-6 md:p-8 rounded-2xl shadow-sm">
-            <div className="flex items-center mb-6 border-b border-gray-150 dark:border-gray-850 pb-4">
+          <div 
+            data-aos="fade-up" 
+            data-aos-delay="200" 
+            className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
+          >
+            <div className="flex items-center mb-8">
               <i className="fas fa-certificate text-2xl text-theme-primary mr-3" />
-              <h3 className="text-xl font-bold tracking-tight">Certifications</h3>
+              <h3 className="text-xl font-bold tracking-tight text-gray-850 dark:text-white">Certifications</h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {certificationsList.map((cert, idx) => (
-                <div 
-                  key={idx} 
-                  className="slide-item p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm flex items-center"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-theme-primary/10 flex items-center justify-center shrink-0 mr-4">
-                    <i className={`${cert.icon} text-theme-primary`} />
+                <div key={idx} className="flex items-start">
+                  {/* Icon Block */}
+                  <div className="w-8 h-8 rounded-lg bg-theme-primary/10 flex items-center justify-center shrink-0 mr-4">
+                    <i className={`${cert.icon} text-theme-primary text-sm`} />
                   </div>
+                  {/* Text Block */}
                   <div>
-                    <h4 className="font-bold text-sm text-gray-850 dark:text-white leading-tight">
+                    <h4 className="font-bold text-sm md:text-base text-gray-850 dark:text-white leading-tight">
                       {cert.name}
                     </h4>
                     <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-1">{cert.issuer}</p>
