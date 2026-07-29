@@ -56,7 +56,7 @@ export const LoadingScreen = ({ onComplete }) => {
       // 2. Fetch fresh commit details
       try {
         const response = await fetch(
-          'https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi.github.io/commits?per_page=1'
+          'https://api.github.com/repos/ervijayraghuwanshi/ErVijayRaghuwanshi.github.io/commits?sha=react-version&per_page=1'
         );
         if (!response.ok) throw new Error('GitHub API rate limited or offline');
         const data = await response.json();
