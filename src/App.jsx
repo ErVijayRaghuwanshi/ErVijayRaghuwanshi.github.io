@@ -39,7 +39,7 @@ function App() {
         <Navbar />
 
         {/* Main Content Sections */}
-        <main className="flex-grow">
+        <main className="grow">
           {/* Hero Intro */}
           <Hero />
 

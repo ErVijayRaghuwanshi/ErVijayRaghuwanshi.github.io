@@ -4,7 +4,7 @@ export const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/ErVijayRaghuwanshi', icon: 'fab fa-github' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/ervijayraghuwanshi/', icon: 'fab fa-linkedin' },
-    { name: 'WhatsApp', href: 'https://wa.me/919755491130?text=Hello%20Vijay,%20I%20came%20across%2520your%2520portfolio%2520and%2520would%2520like%2520to%252520connect.', icon: 'fab fa-whatsapp' },
+    { name: 'WhatsApp', href: 'https://wa.me/919755491130?text=Hello Vijay, I came across your portfolio and would like to connect.', icon: 'fab fa-whatsapp' },
     { name: 'X', href: 'https://x.com/ErVijayRaghu1c', icon: 'fab fa-x' },
     { name: 'Instagram', href: 'https://instagram.com/er.vijayraghuwanshi', icon: 'fab fa-instagram' },
     { name: 'Email', href: 'mailto:ervijayraghuwanshi@gmail.com?subject=Portfolio%20Contact&body=Hello%20Vijay,%0A%0AI%20just%20checked%20your%20portfolio%20and%20would%20like%2520to%2520connect.', icon: 'fas fa-envelope' },
