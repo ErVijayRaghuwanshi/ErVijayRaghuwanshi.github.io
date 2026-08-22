@@ -11,6 +11,7 @@ import { LeetCode } from './components/LeetCode';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { LoadingScreen } from './components/LoadingScreen';
+import { BusinessCardTrigger } from './components/BusinessCardTrigger';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -29,6 +30,9 @@ function App() {
     <ThemeProvider>
       {/* Fullscreen Loader Screen */}
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+
+      {/* Business Card Download Intent Trigger */}
+      {!loading && <BusinessCardTrigger />}
 
       {/* Background Particles Layer */}
       <ParticlesBg />
