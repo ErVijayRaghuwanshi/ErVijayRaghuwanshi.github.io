@@ -202,6 +202,21 @@ export const Projects = () => {
       icon: 'fas fa-search'
     },
     {
+      title: 'SparkLens AI Agent',
+      categories: ['ai-genai', 'big-data-backend'],
+      status: 'Prototype',
+      statusClass: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+      description: 'Interactive AI-powered diagnostic and observability assistant for Apache Spark, integrating with the SparkLens MCP server to provide automated root-cause analysis and cluster tuning.',
+      features: [
+        'Dynamic MCP tool registration over Server-Sent Events (SSE) protocol.',
+        'Conversational Spark diagnostics for failed stages, memory spills, and task skew.',
+        'Automated root-cause analysis and performance tuning recommendation engine.'
+      ],
+      tags: ['FastAPI', 'LangChain', 'Gemini', 'SparkLens MCP', 'Python 3.11', 'SSE'],
+      closedSource: true,
+      icon: 'fas fa-robot'
+    },
+    {
       title: 'OSINT Scraper REST API',
       categories: ['big-data-backend', 'cybersecurity'],
       status: 'Active',
