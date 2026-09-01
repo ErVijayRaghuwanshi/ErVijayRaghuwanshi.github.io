@@ -187,6 +187,21 @@ export const Projects = () => {
       icon: 'fas fa-server'
     },
     {
+      title: 'SparkLens',
+      categories: ['big-data-backend', 'ai-genai'],
+      status: 'Active',
+      statusClass: 'bg-sky-500/10 text-sky-500 border-sky-500/20',
+      description: 'Model Context Protocol (MCP) server exposing Apache Spark History Server data as structured, context-rich tools for LLM-driven diagnostics and performance tuning.',
+      features: [
+        'Multi-version Spark support (3.x & 4.x) with auto-detection & ANSI SQL error parsing.',
+        'Spark 4.x migration readiness auditor for breaking changes and deprecated configs.',
+        'LLM diagnostic tools for stage failures, partition data skew, and execution DAGs.'
+      ],
+      tags: ['Python 3.10+', 'FastMCP', 'Apache Spark', 'LLMs', 'Pydantic', 'AsyncIO'],
+      link: 'https://github.com/ErVijayRaghuwanshi/spark-lens',
+      icon: 'fas fa-search'
+    },
+    {
       title: 'OSINT Scraper REST API',
       categories: ['big-data-backend', 'cybersecurity'],
       status: 'Active',
