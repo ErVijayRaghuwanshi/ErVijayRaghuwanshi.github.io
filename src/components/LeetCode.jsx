@@ -61,25 +61,33 @@ export const LeetCode = () => {
     };
 
     const triggerCountAnimation = (targetData) => {
-      const duration = 1200; // ms
+      const duration = 1600; // ms for ultra-smooth fluid animation
       const startTime = performance.now();
 
       const easyTarget = targetData.easySolved || 198;
       const mediumTarget = targetData.mediumSolved || 188;
       const hardTarget = targetData.hardSolved || 25;
       const totalTarget = targetData.totalSolved || 411;
+      const totalQuestions = targetData.totalQuestions || 3999;
+      const targetRatio = totalQuestions > 0 ? (totalTarget / totalQuestions) : 0;
+
+      // Cubic ease-out curve for natural deceleration
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
       const animate = (currentTime) => {
-        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const elapsed = currentTime - startTime;
+        const rawProgress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutCubic(rawProgress);
         
         setAnimatedStats({
-          easy: Math.floor(easyTarget * progress),
-          medium: Math.floor(mediumTarget * progress),
-          hard: Math.floor(hardTarget * progress),
-          total: Math.floor(totalTarget * progress)
+          easy: Math.round(easyTarget * easedProgress),
+          medium: Math.round(mediumTarget * easedProgress),
+          hard: Math.round(hardTarget * easedProgress),
+          total: Math.round(totalTarget * easedProgress),
+          progressRatio: targetRatio * easedProgress
         });
 
-        if (progress < 1) {
+        if (rawProgress < 1) {
           requestAnimationFrame(animate);
         }
       };
@@ -115,11 +123,11 @@ export const LeetCode = () => {
     { name: 'Top SQL 50', image: '/assets/leetcode/Top_SQL_50.gif' }
   ];
 
-  // SVG circular progress calculation
+  // SVG circular progress calculation linked to animated ratio
   const radius = 52;
   const circumference = 2 * Math.PI * radius;
-  const solveRatio = stats.totalQuestions > 0 ? stats.totalSolved / stats.totalQuestions : 0;
-  const strokeDashoffset = circumference - solveRatio * circumference;
+  const strokeDashoffset = circumference - (animatedStats.progressRatio * circumference);
+  const currentPercentage = (animatedStats.progressRatio * 100).toFixed(1);
 
   return (
     <section id="leetcode" ref={containerRef} className="py-24 bg-white dark:bg-gray-800/40 transition-colors duration-300 relative">
@@ -161,7 +169,7 @@ export const LeetCode = () => {
                       cx="64"
                       cy="64"
                       r={radius}
-                      className="stroke-theme-primary fill-none transition-all duration-1000 ease-out"
+                      className="stroke-theme-primary fill-none"
                       strokeWidth="8"
                       strokeDasharray={circumference}
                       strokeDashoffset={strokeDashoffset}
@@ -181,7 +189,7 @@ export const LeetCode = () => {
 
                 <div className="text-center sm:text-left">
                   <p className="text-2xl font-black text-gray-800 dark:text-white leading-tight">
-                    {((solveRatio) * 100).toFixed(1)}%
+                    {currentPercentage}%
                   </p>
                   <p className="text-xs font-semibold text-gray-450 dark:text-gray-450 mt-1">
                     Solve Rate of {stats.totalQuestions.toLocaleString()} Total Questions
