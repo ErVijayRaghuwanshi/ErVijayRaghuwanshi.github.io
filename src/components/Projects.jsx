@@ -158,16 +158,16 @@ export const Projects = () => {
     },
     {
       title: 'Livy UI',
-      categories: ['big-data-backend', 'web-apps'],
+      categories: ['big-data-backend', 'ai-genai', 'web-apps'],
       status: 'Active',
       statusClass: 'bg-sky-500/10 text-sky-500 border-sky-500/20',
-      description: 'Modern web-based SQL editor for Apache Livy, enabling users to compose, run, and explore Spark SQL queries directly from the browser.',
+      description: 'High-performance web SQL workbench for Apache Spark and Apache Doris featuring DeepAgents AI subagents with context quarantine, multi-provider LLM copilot, local file system workspaces, and live markdown preview.',
       features: [
-        'Multi-tab editor with 300+ Spark function autocompletes.',
-        'Interactive SQL snippet tab-stops & Hive schema explorer.',
-        'Built-in backend-free CORS proxy routing remote connections.'
+        'DeepAgents subagent architecture (schema analyst, SQL specialist, cluster operator) saving 75-85% tokens.',
+        'Dual-engine execution switching seamlessly between Apache Spark SQL sessions and Apache Doris MPP data warehouses.',
+        'Multi-provider AI Copilot (Ollama local, Gemini 2.5, GPT-4o) with 1-click action cards, PWA offline support & native file system access.'
       ],
-      tags: ['React 19', 'Tailwind 4', 'Monaco', 'Livy', 'Spark SQL'],
+      tags: ['React 19', 'Tailwind 4', 'Monaco', 'DeepAgents', 'Apache Doris', 'Spark SQL', 'PWA'],
       link: 'https://github.com/ErVijayRaghuwanshi/livy-ui',
       icon: 'fas fa-terminal'
     },
@@ -191,28 +191,28 @@ export const Projects = () => {
       categories: ['big-data-backend', 'ai-genai'],
       status: 'Active',
       statusClass: 'bg-sky-500/10 text-sky-500 border-sky-500/20',
-      description: 'Model Context Protocol (MCP) server exposing Apache Spark History Server data as structured, context-rich tools for LLM-driven diagnostics and performance tuning.',
+      description: 'Model Context Protocol (MCP) server exposing Apache Spark History Server & Livy-Next session data as structured, context-rich tools for LLM-driven cluster diagnostics, performance tuning, and Spark 4.0 migration auditing.',
       features: [
-        'Multi-version Spark support (3.x & 4.x) with auto-detection & ANSI SQL error parsing.',
-        'Spark 4.x migration readiness auditor for breaking changes and deprecated configs.',
-        'LLM diagnostic tools for stage failures, partition data skew, and execution DAGs.'
+        'Asynchronous Apache Livy-Next client for interactive Spark Connect sessions, statement tagging, and multi-tenancy.',
+        'Multi-version Spark diagnostics (3.x & 4.x) with Spark 4.0 structured error framework & ANSI SQL error parsing.',
+        'Migration readiness auditor detecting Spark 3.x to 4.x breaking changes, partition data skew, and execution DAG bottlenecks.'
       ],
-      tags: ['Python 3.10+', 'FastMCP', 'Apache Spark', 'LLMs', 'Pydantic', 'AsyncIO'],
+      tags: ['Python 3.10+', 'FastMCP', 'Apache Spark', 'Spark Connect', 'Livy-Next', 'LLMs', 'AsyncIO'],
       link: 'https://github.com/ErVijayRaghuwanshi/spark-lens',
       icon: 'fas fa-search'
     },
     {
       title: 'SparkLens AI Agent',
-      categories: ['ai-genai', 'big-data-backend'],
+      categories: ['ai-genai', 'big-data-backend', 'web-apps'],
       status: 'Active',
       statusClass: 'bg-sky-500/10 text-sky-500 border-sky-500/20',
-      description: 'Interactive AI-powered diagnostic and observability assistant for Apache Spark, integrating with the SparkLens MCP server to provide automated root-cause analysis and cluster tuning.',
+      description: 'Decoupled full-stack AI diagnostic workbench for Apache Spark, featuring a modular FastAPI backend, multi-stage LangGraph agents with guardrails/PII masking, and a modern React + Vite workspace.',
       features: [
-        'Dynamic MCP tool registration over Server-Sent Events (SSE) protocol.',
-        'Conversational Spark diagnostics for failed stages, memory spills, and task skew.',
-        'Automated root-cause analysis and performance tuning recommendation engine.'
+        'Decoupled full-stack workbench with modern React + Vite frontend and FastAPI backend over SSE streaming.',
+        'Multi-stage versioned agent harness (LangChain, LangGraph, DeepAgents) with PostgreSQL conversation persistence.',
+        'Stage 2.7 Guardrails & PII defense with automated 5th-message emoji topic title generation.'
       ],
-      tags: ['FastAPI', 'LangChain', 'Gemini', 'SparkLens MCP', 'Python 3.11', 'SSE'],
+      tags: ['React 19', 'FastAPI', 'LangGraph', 'LangChain', 'Gemini', 'SparkLens MCP', 'PostgreSQL', 'Tailwind'],
       link: 'https://github.com/ErVijayRaghuwanshi/spark-agent',
       icon: 'fas fa-robot'
     },

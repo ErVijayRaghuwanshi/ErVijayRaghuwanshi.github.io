@@ -43,6 +43,8 @@ export const Skills = () => {
         { name: 'pydantic-ai', faIcon: 'fab fa-python' },
         { name: 'LLMs', faIcon: 'fas fa-brain' },
         { name: 'LangChain', faIcon: 'fas fa-link' },
+        { name: 'LangGraph', faIcon: 'fas fa-project-diagram' },
+        { name: 'FastMCP', faIcon: 'fas fa-plug' },
         { name: 'Cybersecurity', faIcon: 'fas fa-shield-alt' },
         { name: 'Big Data Pipelines', faIcon: 'fas fa-stream' },
         { name: 'N8N', faIcon: 'fas fa-cogs' }
