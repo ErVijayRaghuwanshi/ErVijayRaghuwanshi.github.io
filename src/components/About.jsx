@@ -2,7 +2,7 @@ import React from 'react';
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300 relative">
+    <section id="about" className="py-20 transition-colors duration-300 relative">
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         

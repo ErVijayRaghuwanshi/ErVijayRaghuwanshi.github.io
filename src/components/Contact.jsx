@@ -59,7 +59,7 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-gray-50/50 dark:bg-gray-900/30 transition-colors duration-300">
+    <section id="contact" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         

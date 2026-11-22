@@ -130,7 +130,7 @@ export const LeetCode = () => {
   const currentPercentage = (animatedStats.progressRatio * 100).toFixed(1);
 
   return (
-    <section id="leetcode" ref={containerRef} className="py-24 bg-white dark:bg-gray-800/40 transition-colors duration-300 relative">
+    <section id="leetcode" ref={containerRef} className="py-24 transition-colors duration-300 relative">
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
       <div className="container mx-auto px-4 relative z-10">
         

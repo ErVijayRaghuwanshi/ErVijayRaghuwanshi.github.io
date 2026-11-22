@@ -66,9 +66,11 @@ export const ParticlesBg = () => {
       }
 
       draw() {
+        const isDark = document.documentElement.classList.contains('dark');
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = particleColor + '80'; // 50% opacity in hex is 80
+        // Soft 20% opacity in light mode to prevent visual noise / glare
+        ctx.fillStyle = isDark ? particleColor + '70' : particleColor + '25';
         ctx.fill();
       }
 
@@ -107,7 +109,9 @@ export const ParticlesBg = () => {
           const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
 
           if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.15;
+            const isDark = document.documentElement.classList.contains('dark');
+            const maxAlpha = isDark ? 0.15 : 0.05;
+            const alpha = (1 - dist / connectionDistance) * maxAlpha;
             ctx.strokeStyle = `${particleColor}${Math.floor(alpha * 255).toString(16).padStart(2, '0')}`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();

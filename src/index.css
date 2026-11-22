@@ -80,8 +80,8 @@ body {
 
 /* Grid Pattern Background */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -147,18 +147,18 @@ body {
 
 /* Project Card & Hover Effects */
 .card-hover-effect {
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
 .dark .card-hover-effect {
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(31, 41, 55, 0.6);
+  backdrop-filter: blur(12px);
   box-shadow: none;
 }
 
@@ -183,7 +183,7 @@ body {
 .card-hover-effect:hover {
   transform: translateY(-6px);
   border-color: var(--primary-color);
-  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.12);
 }
 
 .dark .card-hover-effect:hover {
@@ -196,8 +196,8 @@ body {
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
 }
 
 .dark .skill-card {
@@ -225,7 +225,7 @@ body {
 
 .skill-card:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.12);
   border-color: var(--primary-color) !important;
 }
 
@@ -235,9 +235,9 @@ body {
 
 /* Skill Badges */
 .skill-badge-custom {
-  background: #f3f4f6;
-  border: 1px solid #e5e7eb;
-  color: #1f2937;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
   transition: all 0.2s ease;
 }
 
