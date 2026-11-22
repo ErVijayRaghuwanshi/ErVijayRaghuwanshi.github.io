@@ -82,11 +82,11 @@ export const Navbar = () => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => handleNavClick('home')}>
-            <div className="w-9 h-9 bg-gradient-to-r from-theme-primary to-indigo-500 rounded-full flex items-center justify-center shadow-md">
+          <div className="flex items-center space-x-2 cursor-pointer shrink-0" onClick={() => handleNavClick('home')}>
+            <div className="w-9 h-9 bg-gradient-to-r from-theme-primary to-indigo-500 rounded-full flex items-center justify-center shadow-md shrink-0">
               <span className="text-white font-bold text-sm">VR</span>
             </div>
-            <span className="text-lg font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent truncate max-w-[160px] sm:max-w-none">
               Vijay Raghuwanshi
             </span>
           </div>
@@ -117,11 +117,11 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Actions */}
-          <div className="flex md:hidden items-center space-x-3">
-            <ThemeSelector />
+          <div className="flex md:hidden items-center space-x-2">
+            <ThemeSelector modeOnly={true} />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 text-xl focus:outline-none p-1 cursor-pointer"
+              className="w-9 h-9 rounded-xl flex items-center justify-center text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700/80 text-lg focus:outline-none cursor-pointer"
               aria-label="Toggle mobile menu"
             >
               <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`} />
@@ -152,6 +152,12 @@ export const Navbar = () => {
               {item.label}
             </button>
           ))}
+
+          {/* Accent Color Palette in Mobile Drawer */}
+          <div className="pt-3 mt-2 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between px-2">
+            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Theme Colors</span>
+            <ThemeSelector />
+          </div>
         </div>
       </div>
     </nav>

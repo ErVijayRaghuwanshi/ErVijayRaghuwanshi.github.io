@@ -55,11 +55,14 @@
 /* Base Customizations */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Particles Canvas */
@@ -75,8 +78,8 @@ body {
 
 /* Grid Pattern Background */
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -142,12 +145,19 @@ body {
 
 /* Project Card & Hover Effects */
 .card-hover-effect {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  background: rgba(31, 41, 55, 0.6);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-hover-effect {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(31, 41, 55, 0.6);
+  box-shadow: none;
 }
 
 .card-hover-effect::after {
@@ -171,6 +181,10 @@ body {
 .card-hover-effect:hover {
   transform: translateY(-6px);
   border-color: var(--primary-color);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-hover-effect:hover {
   box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.3);
 }
 
@@ -179,6 +193,15 @@ body {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dark .skill-card {
+  background-color: rgba(31, 41, 55, 0.4);
+  border-color: rgba(31, 41, 55, 0.7);
+  box-shadow: none;
 }
 
 .skill-card::before {
@@ -200,23 +223,33 @@ body {
 
 .skill-card:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.15);
   border-color: var(--primary-color) !important;
 }
 
+.dark .skill-card:hover {
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.25);
+}
 
 /* Skill Badges */
 .skill-badge-custom {
-  background: rgba(55, 65, 81, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
   transition: all 0.2s ease;
 }
 
+.dark .skill-badge-custom {
+  background: rgba(55, 65, 81, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+}
+
 .skill-badge-custom:hover {
-  background: var(--primary-color);
-  color: white;
+  background: var(--primary-color) !important;
+  color: white !important;
   transform: scale(1.05);
-  border-color: var(--primary-color);
+  border-color: var(--primary-color) !important;
 }
 
 /* Nav Link Hover Underlines */

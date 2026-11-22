@@ -324,7 +324,7 @@ export const Projects = () => {
                   <div className="w-10 h-10 bg-theme-primary/10 rounded-xl flex items-center justify-center mr-3 shrink-0">
                     <i className={`${project.icon} text-lg text-theme-primary`} />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-850 dark:text-white leading-tight">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
                     {project.title}
                   </h3>
                 </div>
@@ -358,7 +358,7 @@ export const Projects = () => {
                 {project.tags.map((tag) => (
                   <span 
                     key={tag} 
-                    className="text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 border border-gray-200/20 text-gray-550 dark:text-gray-450"
+                    className="text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 text-gray-600 dark:text-gray-400"
                   >
                     {tag}
                   </span>
@@ -368,11 +368,11 @@ export const Projects = () => {
               {/* Footer Button */}
               <div className="pt-2 mt-auto">
                 {project.closedSource ? (
-                  <button className="w-full text-center px-4 py-2.5 rounded-xl text-xs font-bold bg-gray-250 dark:bg-gray-800/80 text-gray-400 border border-gray-200/10 cursor-not-allowed flex items-center justify-center gap-1.5" disabled>
+                  <button className="w-full text-center px-4 py-2.5 rounded-xl text-xs font-bold bg-gray-100 dark:bg-gray-800/80 text-gray-400 border border-gray-200 dark:border-gray-700/40 cursor-not-allowed flex items-center justify-center gap-1.5" disabled>
                     PoC / Closed Source <i className="fas fa-lock text-[10px]" />
                   </button>
                 ) : project.hardwarePoc ? (
-                  <button className="w-full text-center px-4 py-2.5 rounded-xl text-xs font-bold bg-gray-250 dark:bg-gray-800/80 text-gray-400 border border-gray-200/10 cursor-not-allowed flex items-center justify-center gap-1.5" disabled>
+                  <button className="w-full text-center px-4 py-2.5 rounded-xl text-xs font-bold bg-gray-100 dark:bg-gray-800/80 text-gray-400 border border-gray-200 dark:border-gray-700/40 cursor-not-allowed flex items-center justify-center gap-1.5" disabled>
                     Hardware PoC <i className="fas fa-microchip text-[10px]" />
                   </button>
                 ) : (

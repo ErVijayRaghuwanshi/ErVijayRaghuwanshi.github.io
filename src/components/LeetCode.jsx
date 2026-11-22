@@ -146,7 +146,7 @@ export const LeetCode = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto mb-16">
           
           {/* Left Column: Solved Stats Cards */}
-          <div data-aos="fade-up" data-aos-delay="100" className="lg:col-span-5 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col justify-between">
+          <div data-aos="fade-up" data-aos-delay="100" className="lg:col-span-5 bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
                 Problems Solved
@@ -178,10 +178,10 @@ export const LeetCode = () => {
                   </svg>
                   {/* Inside Text */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-2xl font-black text-gray-850 dark:text-white leading-none">
+                    <span className="text-2xl font-black text-gray-900 dark:text-white leading-none">
                       {animatedStats.total}
                     </span>
-                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-550 uppercase tracking-widest mt-1">
+                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mt-1">
                       Solved
                     </span>
                   </div>
@@ -231,7 +231,7 @@ export const LeetCode = () => {
           </div>
 
           {/* Right Column: Badges Showcase */}
-          <div data-aos="fade-up" data-aos-delay="200" className="lg:col-span-7 bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col">
+          <div data-aos="fade-up" data-aos-delay="200" className="lg:col-span-7 bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm hover:border-theme-primary/20 transition-all duration-300 flex flex-col">
             <h3 className="text-lg font-bold tracking-tight mb-6 text-gray-800 dark:text-white uppercase tracking-wider text-center lg:text-left border-b border-gray-100 dark:border-gray-800 pb-3">
               Earned Badges
             </h3>
@@ -240,7 +240,7 @@ export const LeetCode = () => {
               {badges.map((badge, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-gray-50/50 dark:bg-gray-900/40 border border-gray-150 dark:border-gray-800/60 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:border-theme-primary/20 hover:-translate-y-0.5"
+                  className="bg-gray-50/50 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800/60 rounded-xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:border-theme-primary/20 hover:-translate-y-0.5"
                 >
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center shrink-0">
                     {/* Badge Base Background */}

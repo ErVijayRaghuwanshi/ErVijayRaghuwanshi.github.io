@@ -148,6 +148,8 @@ export const LoadingScreen = ({ onComplete }) => {
         className="text-center p-6 max-w-lg w-full relative group transition-transform duration-300"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleMouseEnter}
+        onTouchEnd={handleMouseLeave}
       >
         {/* Loading Logo */}
         <div className="text-5xl md:text-6xl font-black mb-4 tracking-tight animate-pulse bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent select-none">
@@ -170,7 +172,7 @@ export const LoadingScreen = ({ onComplete }) => {
                 </span>
               ) : (
                 <span className="text-[10px] uppercase font-bold text-gray-400 dark:text-gray-500 tracking-wider">
-                  Hover to Pause
+                  Tap / Hover to Pause
                 </span>
               )}
             </div>
@@ -197,7 +199,7 @@ export const LoadingScreen = ({ onComplete }) => {
 
             {/* Bottom Controls / Continue Action */}
             <div className="pt-2 flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800/80 mt-3">
-              <span>{isHovered ? 'Move mouse away to resume' : 'Hold cursor to read'}</span>
+              <span>{isHovered ? 'Release to resume' : 'Tap or hold to read'}</span>
               <button 
                 onClick={handleComplete}
                 className="font-bold text-theme-primary hover:underline flex items-center gap-1 cursor-pointer"

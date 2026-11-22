@@ -52,21 +52,21 @@ export const Education = () => {
           <div 
             data-aos="fade-up" 
             data-aos-delay="100" 
-            className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
+            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
           >
             <div className="flex items-center mb-8">
               <i className="fas fa-university text-2xl text-theme-primary mr-3" />
-              <h3 className="text-xl font-bold tracking-tight text-gray-850 dark:text-white">Education</h3>
+              <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Education</h3>
             </div>
             
             <div className="relative border-l-2 border-theme-primary/30 pl-6 ml-2 space-y-8">
               {educationList.map((edu, idx) => (
                 <div key={idx} className="relative">
                   {/* Timeline bullet dot */}
-                  <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full bg-theme-primary border-4 border-white dark:border-gray-900" />
+                  <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-theme-primary border-4 border-white dark:border-gray-900" />
                   
                   <div>
-                    <h4 className="font-bold text-base md:text-lg text-gray-850 dark:text-white leading-snug">
+                    <h4 className="font-bold text-base md:text-lg text-gray-900 dark:text-white leading-snug">
                       {edu.title}
                     </h4>
                     
@@ -93,11 +93,11 @@ export const Education = () => {
           <div 
             data-aos="fade-up" 
             data-aos-delay="200" 
-            className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
+            className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-t-4 border-theme-primary"
           >
             <div className="flex items-center mb-8">
               <i className="fas fa-certificate text-2xl text-theme-primary mr-3" />
-              <h3 className="text-xl font-bold tracking-tight text-gray-850 dark:text-white">Certifications</h3>
+              <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Certifications</h3>
             </div>
 
             <div className="space-y-6">
@@ -109,7 +109,7 @@ export const Education = () => {
                   </div>
                   {/* Text Block */}
                   <div>
-                    <h4 className="font-bold text-sm md:text-base text-gray-850 dark:text-white leading-tight">
+                    <h4 className="font-bold text-sm md:text-base text-gray-900 dark:text-white leading-tight">
                       {cert.name}
                     </h4>
                     <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mt-1">{cert.issuer}</p>

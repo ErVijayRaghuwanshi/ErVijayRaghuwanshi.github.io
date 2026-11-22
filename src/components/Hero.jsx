@@ -78,7 +78,7 @@ export const Hero = () => {
               <div className="absolute inset-4 bg-white/80 dark:bg-gray-800/80 border border-gray-200/50 dark:border-gray-700/50 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-sm">
                 <div className="text-center p-6">
                   <i className="fas fa-code text-5xl md:text-6xl text-theme-primary mb-3" />
-                  <p className="text-xl font-bold text-gray-850 dark:text-white">4+ Years of Experience</p>
+                  <p className="text-xl font-bold text-gray-900 dark:text-white">4+ Years of Experience</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Building Scalable & Fault-tolerant Solutions</p>
                 </div>
               </div>

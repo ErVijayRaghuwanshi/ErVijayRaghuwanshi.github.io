@@ -72,13 +72,13 @@ export const Skills = () => {
               key={idx} 
               data-aos="fade-up"
               data-aos-delay={(idx + 1) * 100}
-              className="skill-card bg-white dark:bg-gray-800/40 border border-gray-150 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm"
+              className="skill-card bg-white dark:bg-gray-800/40 border border-gray-200 dark:border-gray-800/70 p-6 md:p-8 rounded-2xl shadow-sm"
             >
               <div className="flex items-center mb-6">
                 <div className="w-9 h-9 bg-theme-primary/10 rounded-lg flex items-center justify-center mr-3">
                   <i className={`${cat.icon} text-theme-primary`} />
                 </div>
-                <h3 className="text-xl font-bold tracking-tight text-gray-850 dark:text-white">
+                <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {cat.title}
                 </h3>
               </div>

@@ -12,7 +12,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
+    <footer className="bg-white dark:bg-gray-950 text-gray-600 dark:text-gray-400 py-12 border-t border-gray-200 dark:border-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4 text-center">
         
         {/* Social Icons */}
@@ -23,7 +23,7 @@ export const Footer = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-450 hover:text-white transition-colors duration-300 text-xl"
+              className="text-gray-500 dark:text-gray-400 hover:text-theme-primary dark:hover:text-white transition-colors duration-300 text-xl"
               title={social.name}
               aria-label={social.name}
             >
@@ -33,7 +33,7 @@ export const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="w-16 h-0.5 bg-gray-800 mx-auto mb-8" />
+        <div className="w-16 h-0.5 bg-gray-200 dark:bg-gray-800 mx-auto mb-8" />
 
         {/* Copyright */}
         <p className="text-sm font-semibold tracking-wide text-gray-500">

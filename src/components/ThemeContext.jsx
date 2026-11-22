@@ -15,23 +15,52 @@ export const ThemeProvider = ({ children }) => {
     return localStorage.getItem('theme') || 'theme-blue';
   });
 
+  const [mode, setMode] = useState(() => {
+    const savedMode = localStorage.getItem('theme_mode');
+    if (savedMode) return savedMode;
+    // Default to dark mode for developer portfolio aesthetic
+    return 'dark';
+  });
+
   const activeTheme = themes.find(t => t.class === currentTheme) || themes[0];
 
+  const toggleMode = () => {
+    setMode(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   useEffect(() => {
-    // Remove all theme classes first
+    // 1. Sync light/dark class on root
+    const root = document.documentElement;
+    if (mode === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+    }
+    root.style.colorScheme = mode;
+    localStorage.setItem('theme_mode', mode);
+  }, [mode]);
+
+  useEffect(() => {
+    // 2. Remove all accent theme classes and apply active
     themes.forEach(t => {
       document.body.classList.remove(t.class);
     });
-    // Add current theme class
     document.body.classList.add(currentTheme);
-    // Force dark mode at html level
-    document.documentElement.classList.add('dark');
-    // Save to local storage
     localStorage.setItem('theme', currentTheme);
   }, [currentTheme]);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, setCurrentTheme, activeTheme, themes }}>
+    <ThemeContext.Provider value={{ 
+      currentTheme, 
+      setCurrentTheme, 
+      activeTheme, 
+      themes, 
+      mode, 
+      toggleMode, 
+      isDark: mode === 'dark' 
+    }}>
       {children}
     </ThemeContext.Provider>
   );
