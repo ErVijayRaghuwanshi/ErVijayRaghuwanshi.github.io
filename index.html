@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Vijay Raghuwanshi | Backend, Big Data & AI Engineer</title>
 
+  <!-- Prevent Theme Flash -->
+  <script>
+    (function() {
+      try {
+        const savedMode = localStorage.getItem('theme_mode');
+        if (savedMode === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.style.colorScheme = 'light';
+        } else {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Theme -->
   <meta name="theme-color" content="#2563eb" />
 
