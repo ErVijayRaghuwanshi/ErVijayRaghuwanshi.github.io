@@ -30,8 +30,7 @@ export const About = () => {
 
           <p data-aos="fade-up" data-aos-delay="300">
             <i className="fas fa-rocket text-theme-primary mr-2" />
-            I also build product-focused projects such as <strong>Akashvani Radio</strong>, <strong>Livy UI</strong>, and
-             <strong>OSINT Scraper REST API</strong>—combining clean UX with strong engineering fundamentals.
+            I also build product-focused platforms such as <strong>Livy UI</strong> (DeepAgents SQL workbench), <strong>SparkLens</strong> (FastMCP server for Spark), <strong>SparkLens AI Agent</strong> (LangGraph workbench), and <strong>RadioWave</strong>—combining clean UX with strong engineering fundamentals.
           </p>
         </div>
 

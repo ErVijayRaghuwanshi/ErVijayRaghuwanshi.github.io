@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeSelector } from './ThemeSelector';
 
 export const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -34,12 +35,21 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Keyboard shortcut listener (Alt key triggers keytips)
+  // Keyboard shortcut listener (Alt key triggers keytips and hotkey navigation)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Alt') {
         setShowKeytips(true);
         document.body.classList.add('show-keytips');
+      }
+
+      // If Alt is held and one of the shortcut keys is pressed
+      if (e.altKey) {
+        const match = navItems.find(item => item.key.toLowerCase() === e.key.toLowerCase());
+        if (match) {
+          e.preventDefault();
+          handleNavClick(match.id);
+        }
       }
     };
 
@@ -82,12 +92,12 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`nav-link-custom relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 flex items-center ${
+                className={`nav-link-custom relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 flex items-center cursor-pointer ${
                   activeSection === item.id
                     ? 'text-theme-primary dark:text-theme-primary bg-theme-primary/10'
                     : 'text-gray-600 dark:text-gray-300 hover:text-theme-primary dark:hover:text-theme-primary hover:bg-gray-100 dark:hover:bg-gray-800'
@@ -101,13 +111,17 @@ export const Navbar = () => {
               </button>
             ))}
 
+            <div className="pl-2 border-l border-gray-200 dark:border-gray-700/60 ml-2">
+              <ThemeSelector />
+            </div>
           </div>
 
           {/* Mobile Menu Actions */}
           <div className="flex md:hidden items-center space-x-3">
+            <ThemeSelector />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300 text-xl focus:outline-none p-1"
+              className="text-gray-700 dark:text-gray-300 text-xl focus:outline-none p-1 cursor-pointer"
               aria-label="Toggle mobile menu"
             >
               <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`} />
@@ -128,7 +142,7 @@ export const Navbar = () => {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`w-full text-left px-4 py-2.5 rounded-lg flex items-center text-sm font-medium transition-all ${
+              className={`w-full text-left px-4 py-2.5 rounded-lg flex items-center text-sm font-medium transition-all cursor-pointer ${
                 activeSection === item.id
                   ? 'text-theme-primary bg-theme-primary/10 font-semibold'
                   : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'

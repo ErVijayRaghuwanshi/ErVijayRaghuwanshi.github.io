@@ -1,81 +1,111 @@
 import React, { useState, useEffect } from 'react';
 
+export const generateVCard = () => {
+  return [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'N:Raghuwanshi;Vijay;;;',
+    'FN:Vijay Raghuwanshi',
+    'ORG:ClearTrail Technologies',
+    'TITLE:Software Engineer (Backend, Big Data & AI)',
+    'TEL;TYPE=CELL,voice,pref:+919755491130',
+    'EMAIL;TYPE=PREF,INTERNET:ervijayraghuwanshi@gmail.com',
+    'URL;TYPE=portfolio:https://ervijayraghuwanshi.github.io/',
+    'URL;TYPE=linkedin:https://www.linkedin.com/in/ervijayraghuwanshi/',
+    'URL;TYPE=github:https://github.com/ErVijayRaghuwanshi',
+    'REV:' + new Date().toISOString(),
+    'END:VCARD'
+  ].join('\r\n');
+};
+
+export const triggerVCardDownload = () => {
+  try {
+    const vcardContent = generateVCard();
+    const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'Vijay_Raghuwanshi.vcf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    return true;
+  } catch (err) {
+    console.error('Failed to download business card:', err);
+    return false;
+  }
+};
+
+const COOLDOWN_DAYS = 14;
+const STORAGE_KEY = 'vcard_prompt_cooldown';
+
 export const BusinessCardTrigger = () => {
   const [showToast, setShowToast] = useState(false);
+  const [hasDownloaded, setHasDownloaded] = useState(false);
 
-  const generateVCard = () => {
-    return [
-      'BEGIN:VCARD',
-      'VERSION:3.0',
-      'N:Raghuwanshi;Vijay;;;',
-      'FN:Vijay Raghuwanshi',
-      'ORG:ClearTrail Technologies',
-      'TITLE:Software Engineer (Backend, Big Data & AI)',
-      'TEL;TYPE=CELL,voice,pref:+919755491130',
-      'EMAIL;TYPE=PREF,INTERNET:ervijayraghuwanshi@gmail.com',
-      'URL;TYPE=portfolio:https://ervijayraghuwanshi.github.io/',
-      'URL;TYPE=linkedin:https://www.linkedin.com/in/ervijayraghuwanshi/',
-      'URL;TYPE=github:https://github.com/ErVijayRaghuwanshi',
-      'REV:' + new Date().toISOString(),
-      'END:VCARD'
-    ].join('\r\n');
+  const isThrottled = () => {
+    try {
+      const cooldownUntil = localStorage.getItem(STORAGE_KEY);
+      if (!cooldownUntil) return false;
+      return Date.now() < parseInt(cooldownUntil, 10);
+    } catch {
+      return false;
+    }
   };
 
-  const triggerDownload = () => {
+  const setCooldown = () => {
     try {
-      const vcardContent = generateVCard();
-      const blob = new Blob([vcardContent], { type: 'text/vcard;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'Vijay_Raghuwanshi.vcf');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-
-      // Show the notification toast
-      setShowToast(true);
-    } catch (err) {
-      console.error('Failed to auto-download business card:', err);
+      const expiresAt = Date.now() + COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
+      localStorage.setItem(STORAGE_KEY, expiresAt.toString());
+    } catch {
+      // Ignore storage errors
     }
   };
 
   useEffect(() => {
-    // Session throttle: trigger only once per browser session
-    if (sessionStorage.getItem('vcard_downloaded')) return;
+    if (isThrottled()) return;
+
+    // Buffer: Wait at least 12 seconds after page load before enabling exit-intent detection
+    // to prevent accidental triggers while the visitor is reading
+    let readyForExit = false;
+    const settleTimeout = setTimeout(() => {
+      readyForExit = true;
+    }, 12000);
 
     const handleExitIntent = (e) => {
-      // Trigger download if mouse moves out of the top boundary (towards tabs/address bar)
-      if (e.clientY < 20 && !sessionStorage.getItem('vcard_downloaded')) {
-        sessionStorage.setItem('vcard_downloaded', 'true');
-        triggerDownload();
-        removeListeners();
-      }
-    };
+      if (!readyForExit || isThrottled()) return;
 
-    const handleVisibilityChange = () => {
-      // Trigger download if tab becomes hidden (on mobile tab switches or minimizing)
-      if (document.visibilityState === 'hidden' && !sessionStorage.getItem('vcard_downloaded')) {
-        sessionStorage.setItem('vcard_downloaded', 'true');
-        triggerDownload();
-        removeListeners();
+      // Only trigger if mouse exits near top boundary
+      if (e.clientY <= 10) {
+        setShowToast(true);
+        setCooldown();
+        document.removeEventListener('mouseleave', handleExitIntent);
       }
-    };
-
-    const removeListeners = () => {
-      document.removeEventListener('mouseleave', handleExitIntent);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
 
     document.addEventListener('mouseleave', handleExitIntent);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      removeListeners();
+      clearTimeout(settleTimeout);
+      document.removeEventListener('mouseleave', handleExitIntent);
     };
   }, []);
+
+  const handleDownload = () => {
+    triggerVCardDownload();
+    setHasDownloaded(true);
+    setCooldown();
+    setTimeout(() => {
+      setShowToast(false);
+    }, 2200);
+  };
+
+  const handleDismiss = () => {
+    setCooldown();
+    setShowToast(false);
+  };
 
   if (!showToast) return null;
 
@@ -89,33 +119,38 @@ export const BusinessCardTrigger = () => {
       {/* Message Info */}
       <div className="flex-grow">
         <h4 className="font-bold text-xs text-gray-800 dark:text-white uppercase tracking-wider">
-          Before you go!
+          {hasDownloaded ? 'Contact Saved!' : 'Stay Connected'}
         </h4>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
-          My digital business card has been saved to your downloads. Add me to your contacts!
+        <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 leading-relaxed">
+          {hasDownloaded 
+            ? 'Vijay’s contact card has been downloaded. Add to your phone or contacts anytime!'
+            : 'Would you like to save Vijay’s digital business card (.vcf) to your contacts before you go?'
+          }
         </p>
         
         {/* Buttons */}
-        <div className="flex gap-4 mt-3">
-          <button 
-            onClick={triggerDownload}
-            className="text-xs font-bold text-theme-primary hover:underline flex items-center gap-1.5 cursor-pointer"
-          >
-            <i className="fas fa-redo text-[10px]" /> Download Again
-          </button>
-          <button 
-            onClick={() => setShowToast(false)}
-            className="text-xs font-bold text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 cursor-pointer"
-          >
-            Dismiss
-          </button>
-        </div>
+        {!hasDownloaded && (
+          <div className="flex items-center gap-3 mt-3">
+            <button 
+              onClick={handleDownload}
+              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-theme-primary text-white hover:opacity-90 flex items-center gap-1.5 cursor-pointer shadow-sm transition-all"
+            >
+              <i className="fas fa-download text-[11px]" /> Save vCard
+            </button>
+            <button 
+              onClick={handleDismiss}
+              className="text-xs font-semibold text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer"
+            >
+              No thanks
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Close cross */}
       <button 
-        onClick={() => setShowToast(false)}
-        className="text-gray-400 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-400 cursor-pointer shrink-0"
+        onClick={handleDismiss}
+        className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer shrink-0 p-1"
         aria-label="Close notification"
       >
         <i className="fas fa-times text-xs" />

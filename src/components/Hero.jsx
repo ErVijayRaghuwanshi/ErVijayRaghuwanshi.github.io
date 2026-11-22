@@ -62,6 +62,12 @@ export const Hero = () => {
               >
                 <i className="fas fa-download mr-2 text-sm" /> Resume
               </a>
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-theme-primary text-gray-700 dark:text-gray-200 hover:text-theme-primary dark:hover:text-theme-primary font-medium text-sm flex items-center transition-all cursor-pointer bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
+              >
+                <i className="fas fa-paper-plane mr-2 text-sm text-theme-primary" /> Get in Touch
+              </button>
             </div>
           </div>
 

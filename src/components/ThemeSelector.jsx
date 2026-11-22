@@ -5,15 +5,15 @@ export const ThemeSelector = () => {
   const { currentTheme, setCurrentTheme, themes } = useTheme();
 
   return (
-    <div className="flex items-center space-x-2 bg-gray-800/40 border border-gray-700/50 p-1.5 rounded-full backdrop-blur-md">
+    <div className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700/60 px-2.5 py-1.5 rounded-full backdrop-blur-md">
       {themes.map((theme) => (
         <button
           key={theme.class}
           onClick={() => setCurrentTheme(theme.class)}
-          className={`w-4 h-4 rounded-full transition-all duration-300 relative ${
+          className={`w-3.5 h-3.5 rounded-full transition-all duration-300 relative cursor-pointer ${
             currentTheme === theme.class 
-              ? 'scale-125 ring-2 ring-white ring-offset-2 ring-offset-gray-900 shadow-lg' 
-              : 'hover:scale-110 opacity-70 hover:opacity-100'
+              ? 'scale-125 ring-2 ring-white dark:ring-white ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-900 shadow-md' 
+              : 'hover:scale-115 opacity-70 hover:opacity-100'
           }`}
           style={{ backgroundColor: theme.color }}
           title={`Switch to ${theme.name} theme`}
